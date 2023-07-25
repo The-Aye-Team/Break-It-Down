@@ -1,15 +1,30 @@
+// Trigger fading animation on load.
+const message = document.querySelector("#message-fade");
+
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    message.classList.add("fadeIn");
+  }, 1000);
+  console.log("Window loaded");
+});
+
 // Fetching OpenAI data
+const beginBtn = document.querySelector(".beginBtn");
+
+// Saves name of user to local storage
+beginBtn.addEventListener('click', () => {
+    const nameInput = document.querySelector('.nameIn').value;
+    localStorage.setItem('userName' , nameInput);
+});
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append(
-  "Authorization",
-  "Bearer OPEN_API_KEY"
-);
+
+myHeaders.append("Authorization", "Bearer API KEY GOES HERE");
 
 var raw = JSON.stringify({
   model: "text-davinci-003",
-  prompt: `Break down '${task}' into smaller tasks seperated by commas`,
+  prompt: `Break down '' into smaller tasks seperated by commas`,
   max_tokens: 250,
   temperature: 0.2,
 });
