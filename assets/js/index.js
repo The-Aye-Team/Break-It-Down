@@ -19,6 +19,7 @@ beginBtn.addEventListener('click', () => {
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
+
 myHeaders.append("Authorization", "Bearer API KEY GOES HERE");
 
 var raw = JSON.stringify({
