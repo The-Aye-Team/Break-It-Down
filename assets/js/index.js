@@ -4,7 +4,7 @@ var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 myHeaders.append(
   "Authorization",
-  "Bearer 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"
+  "Bearer OPEN_API_KEY"
 );
 
 var raw = JSON.stringify({
