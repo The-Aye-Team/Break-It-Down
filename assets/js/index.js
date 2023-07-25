@@ -32,3 +32,5 @@ fetch("https://api.openai.com/v1/completions", requestOptions)
     console.log(newArray);
   })
   .catch((error) => console.log("error", error));
+
+// This completes the script
