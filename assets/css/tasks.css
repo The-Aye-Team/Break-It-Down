@@ -16,3 +16,15 @@ body::after {
   background: rgba(60, 73, 63, 0.8);
   z-index: -1;
 }
+
+.message {
+  position: relative;
+  top: 250px;
+  opacity: 0;
+  transition: 0.2s all ease-in-out;
+}
+
+.fadeIn {
+  top: 200px;
+  opacity: 1;
+}
