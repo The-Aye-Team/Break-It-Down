@@ -1,15 +1,22 @@
+// Trigger fading animation on load.
+const message = document.querySelector("#message-fade");
+
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    message.classList.add("fadeIn");
+  }, 1000);
+  console.log("Window loaded");
+});
+
 // Fetching OpenAI data
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append(
-  "Authorization",
-  "Bearer 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"
-);
+myHeaders.append("Authorization", "Bearer API KEY GOES HERE");
 
 var raw = JSON.stringify({
   model: "text-davinci-003",
-  prompt: `Break down '${task}' into smaller tasks seperated by commas`,
+  prompt: `Break down '' into smaller tasks seperated by commas`,
   max_tokens: 250,
   temperature: 0.2,
 });
