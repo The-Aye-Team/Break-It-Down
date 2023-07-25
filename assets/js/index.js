@@ -1,4 +1,11 @@
 // Fetching OpenAI data
+const beginBtn = document.querySelector(".beginBtn");
+
+
+beginBtn.addEventListener('click', () => {
+    const nameInput = document.querySelector('.nameIn').value;
+    localStorage.setItem('userName' , nameInput);
+});
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
