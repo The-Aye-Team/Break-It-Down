@@ -1,0 +1,18 @@
+body {
+  background: url("../img/background.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(60, 73, 63, 0.8);
+  z-index: -1;
+}
