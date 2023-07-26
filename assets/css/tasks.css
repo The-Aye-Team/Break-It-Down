@@ -4,6 +4,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   max-height: 100vh;
+  min-height: 100vh;
+  overflow-y: hidden;
 }
 
 body::after {
@@ -30,9 +32,28 @@ body::after {
   transition: 0.2s all ease-in-out;
 }
 
-.fadeIn {
+.tasks-container > .tasks-list {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.tasks-container {
+  position: relative;
+  top: 200px;
+  opacity: 0;
+
+  transition: 0.2s all ease-in-out;
+}
+
+/* Fade Logic */
+.fadeIn,
+.fadeInTaskView {
   top: 200px;
   opacity: 1;
+}
+
+.fadeInTaskView {
+  top: 0;
 }
 
 .fadeAway {

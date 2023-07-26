@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Completed Tasks | Break-It-Down</title>
+    
     <link rel="stylesheet" href="assets/css/bootstrap.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,265 +17,147 @@
       src="https://kit.fontawesome.com/8cee7d6611.js"
       crossorigin="anonymous"
     ></script>
+    
   </head>
   <body>
     <div id="logo"><img src="../assets/img/Mobile_Logo.png" width="95%" /></div>
 
-    <div class="container">
-      <div id="topper">COMPLETED TASKS</div>
-    </div>
-    <div class="container">
-      <div id="container2">
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Grocery Shopping
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-            <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Clean son's bedroom
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-            <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Wash the car
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-            <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Prepare for vacation
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-            <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Clean the garage
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-            <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Get ready for yardsale
-          </button>
-          <div>
-            <ul class="dropdown-menu">
-              <li>COMPLETED</li>
-              <li>COMPLETED TASK #2</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= -->
+          
     <section class="tasks-container" id="tasks-container">
       <div class="container">
         <div id="topper">COMPLETED TASKS</div>
       </div>
+
       <div class="container">
         <div id="container2">
           <div class="task-wrapper mb-3 w-100">
-            <a
+            <a 
+              class="btn btn-primary w-100 mb-2 text-start"
+              data-bs-toggle="collapse"
+              href="#collapseExample1"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              style="text-align: left"
+              id = "dropdownMenuButton"
+            >
+              Grocery Shopping <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="collapse" id="collapseExample1">
+              <div class="card card-body">
+                <ul class="list-group">
+                  <li>Some placeholder content for the collapse component.</li>
+                  <li>This panel is hidden by default but revealed when </li> 
+                  <li>the user activates the
+                  relevant trigger.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="task-wrapper mb-3 w-100">
+            <a 
+              class="btn btn-primary w-100 mb-2 text-start"
+              data-bs-toggle="collapse"
+              href="#collapseExample2"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              style="text-align: left"
+              id = "dropdownMenuButton"
+            >
+              Prepare for vacation <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="collapse" id="collapseExample2">
+              <div class="card card-body">
+                <ul class="list-group">
+                  <li>Some placeholder content for the collapse component.</li>
+                  <li>This panel is hidden by default but revealed when </li> 
+                  <li>the user activates the
+                  relevant trigger.</li>
+                </ul>
+              </div>
+            </div>
+          </div><div class="task-wrapper mb-3 w-100">
+            <a 
+              class="btn btn-primary w-100 mb-2 text-start"
+              data-bs-toggle="collapse"
+              href="#collapseExample3"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              style="text-align: left"
+              id = "dropdownMenuButton"
+            >
+              Clean garage <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="collapse" id="collapseExample3">
+              <div class="card card-body">
+                <ul class="list-group">
+                  <li>Some placeholder content for the collapse component.</li>
+                  <li>This panel is hidden by default but revealed when </li> 
+                  <li>the user activates the
+                  relevant trigger.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="task-wrapper mb-3 w-100">
+            <a 
+              class="btn btn-primary w-100 mb-2 text-start"
+              data-bs-toggle="collapse"
+              href="#collapseExample4"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+              style="text-align: left"
+              id = "dropdownMenuButton"
+            >
+              Wash the car <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="collapse" id="collapseExample4">
+              <div class="card card-body">
+                <ul class="list-group">
+                  <li>Some placeholder content for the collapse component."</li>
+                  <li>This panel is hidden by default but revealed when </li> 
+                  <li>the user activates the
+                  relevant trigger.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="task-wrapper mb-3 w-100">
+            <a 
               class="btn btn-primary w-100 mb-2 text-start"
               data-bs-toggle="collapse"
               href="#collapseExample"
               role="button"
               aria-expanded="false"
-              aria-controls="collapseExample"
+              aria-controls="collapseExample5"
               style="text-align: left"
+              id = "dropdownMenuButton"
             >
-              Link with href
+              Clean my son's bedroom <i class="fa-solid fa-chevron-down"></i>
             </a>
 
-            <div class="collapse" id="collapseExample">
+            <div class="collapse" id="collapseExample5">
               <div class="card card-body">
-                Some placeholder content for the collapse component. This panel
-                is hidden by default but revealed when the user activates the
-                relevant trigger.
+                <ul class="list-group">
+                  <li>Some placeholder content for the collapse component.</li>
+                  <li>This panel is hidden by default but revealed when </li> 
+                  <li>the user activates the
+                  relevant trigger.</li>
+                </ul>
               </div>
             </div>
           </div>
-          <a
-            class="btn btn-primary w-100 text-start mb-2"
-            data-bs-toggle="collapse"
-            href="#collapseExample2"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-            style="text-align: left"
-          >
-            Link with href
-          </a>
-
-          <div class="collapse" id="collapseExample2">
-            <div class="card card-body">
-              Some placeholder content for the collapse component. This panel is
-              hidden by default but revealed when the user activates the
-              relevant trigger.
-            </div>
-          </div>
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Grocery Shopping
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Clean son's bedroom
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Wash the car
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Prepare for vacation
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Clean the garage
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Get ready for yardsale
-            </button>
-            <div>
-              <ul class="dropdown-menu">
-                <li>COMPLETED</li>
-                <li>COMPLETED TASK #2</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <div id="backButton">
-      <button class="btn btn-primary" id="back">BACK</button>
+      <button class="btn btn-primary" id="back">BACK </button>
     </div>
   </body>
   <script
