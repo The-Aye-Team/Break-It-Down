@@ -2,7 +2,8 @@ body {
     background-repeat: no-repeat;
     position: relative;
     min-height: 100vh;
-    
+    background: url('../img/background.jpeg');
+    background-size: 2400px 1400px;     
 }
 body:after {
     content: "";
@@ -91,6 +92,7 @@ body {
         background-size: 2400px 1400px; 
     }
 }
+
 @media (min-width:1281px) { /* hi-res laptops and desktops */ 
     .desktopLogo {
         display: flex;
@@ -101,7 +103,7 @@ body {
     .mobileLogo {
         display: none;
     }
-    
+
     .beginBtn {
         padding-left: 10rem;
         padding-right: 10rem;
