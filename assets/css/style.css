@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 body {
     background-repeat: no-repeat;
     position: relative;
     min-height: 100vh;
+    
 }
 body:after {
     content: "";
@@ -87,14 +87,9 @@ input[type="text"] {
 }
 @media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ 
 body {
-        background: url('../img/background.jpg');
+        background: url('../img/background.jpeg');
         background-size: 2400px 1400px; 
     }
-}
-@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
-    
-    
-    
 }
 @media (min-width:1281px) { /* hi-res laptops and desktops */ 
     .desktopLogo {
@@ -106,10 +101,7 @@ body {
     .mobileLogo {
         display: none;
     }
-    body {
-        background: url('../img/background.jpeg');
-        background-size: 2400px 1400px; 
-    }
+    
     .beginBtn {
         padding-left: 10rem;
         padding-right: 10rem;
