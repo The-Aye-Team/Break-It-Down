@@ -1,26 +1,36 @@
 // Trigger fading animation on load.
+if (document.querySelector("#message-fade") != null) {
 const message = document.querySelector("#message-fade");
 const welcome = document.querySelector("#welcome");
 
-window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    message.classList.add("fadeIn");
-  }, 1000);
+let myName = localStorage.getItem("userName");
+    welcome.innerHTML = `Welcome ${myName},`;
 
-  setTimeout(() => {
-    message.classList.add("fadeAway");
-  }, 3000);
-});
-
-// Saves name of user to local storage
-
-const btnClick = () => {
-  const nameInput = document.querySelector(".nameIn").value;
-  localStorage.setItem("userName", nameInput);
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        message.classList.add("fadeIn");
+      }, 1000);
+    
+      setTimeout(() => {
+        message.classList.add("fadeAway");
+      }, 3000);
+    });
 };
 
-let myName = localStorage.getItem("userName");
-welcome.innerHTML = `Welcome ${myName},`;
+// Saves name of user to local storage
+if (document.querySelector(".nameIn") != null) {
+const btnClick = () => {
+    const nameInput = document.querySelector(".nameIn").value;
+    localStorage.setItem("userName", nameInput);
+};
+// Checking for enter keypress
+document.querySelector(".nameIn").addEventListener("keypress", (e) => {
+  if (e.key === `Enter`) {
+    document.querySelector(`.beginBtn`).click();
+    btnClick();
+  }
+});
+};
 
 // Fetch data from OpenAI
 // var myHeaders = new Headers();
