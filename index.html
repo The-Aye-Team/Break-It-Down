@@ -5,30 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Break-It-Down</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="container d-flex flex-column">
       <div class="row justify-content-center readyTo">
         <span>READY TO</span>
       </div>
-        <div class="row justify-content-center desktopLogo">
-          <img src="assets/img/Group 46.png" style="width: 794px;" >
-        </div>
-        <div class="row justify-content-center mobileLogo m-3">
-          <img src="assets/img/mobilelogo.png" id="logoMobile"  >
-        </div>
-        <div class="row justify-content-center name m-3">
-          <span>What's your name?</span>
-        </div>
-        <div class="row justify-content-center ">
-          <input class="nameIn input-group-text" type="text" for="name" name="name" placeholder="Enter your name...">
-        </div>
-        <div class="row justify-content-center">
-          <a href="tasks.html"> <input class="btn btn-dark m-5 beginBtn" type="button" value="LETS BEGIN"></a>
-        </div>
+      <div class="row justify-content-center desktopLogo">
+        <img src="assets/img/Group 46.png" style="width: 794px" />
       </div>
-      <script src="assets/js/index.js"></script>
+      <div class="row justify-content-center mobileLogo m-3">
+        <img src="assets/img/mobilelogo.png" id="logoMobile" />
+      </div>
+      <div class="row justify-content-center name m-3">
+        <span>What's your name?</span>
+      </div>
+      <div class="row justify-content-center">
+        <input
+          class="nameIn input-group-text"
+          type="text"
+          for="name"
+          name="name"
+          placeholder="Enter your name..."
+        />
+      </div>
+      <div class="row justify-content-center">
+        <a href="tasks.html">
+          <input
+            class="btn btn-dark m-5 beginBtn"
+            onclick="btnClick()"
+            type="button"
+            value="LETS BEGIN"
+        /></a>
+      </div>
+    </div>
+    <script src="assets/js/index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
