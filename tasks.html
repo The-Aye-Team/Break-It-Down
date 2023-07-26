@@ -30,35 +30,33 @@
         <h2 class="">Let's Break-It-Down!</h2>
       </div>
     </section>
-    <!-- <section class="tasks-container" id="tasks-container">
-      <div class="container">
-        <div id="topper">COMPLETED TASKS</div>
-      </div>
-      <div class="container">
-        <div id="container2">
-          <div class="task-wrapper mb-3 w-100">
-            <a
-              class="btn btn-primary w-100 mb-2 text-start"
-              data-bs-toggle="collapse"
-              href="#collapseExample"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-              style="text-align: left"
-            >
-              Link with href
-            </a>
+    <section class="tasks-container" id="tasks-container">
+      <div class="container tasks-list mb-3">
+        <div class="task-wrapper mb-3 w-100">
+          <a
+            class="btn btn-primary w-100 mb-2 text-start"
+            data-bs-toggle="collapse"
+            href="#collapseExample"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            style="text-align: left"
+          >
+            Link with href
+          </a>
 
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                Some placeholder content for the collapse component. This panel
-                is hidden by default but revealed when the user activates the
-                relevant trigger.
-              </div>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              Some placeholder content for the collapse component. This panel is
+              hidden by default but revealed when the user activates the
+              relevant trigger.
             </div>
           </div>
+        </div>
+
+        <div class="task-wrapper mb-3 w-100">
           <a
-            class="btn btn-primary w-100 text-start mb-2"
+            class="btn btn-primary w-100 mb-2 text-start"
             data-bs-toggle="collapse"
             href="#collapseExample2"
             role="button"
@@ -76,106 +74,12 @@
               relevant trigger.
             </div>
           </div>
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Grocery Shopping
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Clean son's bedroom
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Wash the car
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Prepare for vacation
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Clean the garage
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">COMPLETED</a></li>
-              <li><a class="dropdown-item" href="#">COMPLETED TASK #2</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Get ready for yardsale
-            </button>
-            <div>
-              <ul class="dropdown-menu">
-                <li>COMPLETED</li>
-                <li>COMPLETED TASK #2</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
-    </section> -->
+      <div class="container add-task">
+        <button class="btn btn-primary" onclick="addTask()">Add Task</button>
+      </div>
+    </section>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -183,5 +87,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/tasks.js"></script>
   </body>
 </html>
