@@ -13,14 +13,17 @@ body:after {
     left: 0;
     background: rgba(60, 73, 63, 0.8);
     z-index: -1;
+    min-height: 100vh;
+
 }
 .readyTo {
-    color: #FFF;
+    color: #D9D9D9;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     font-family: Open Sans;
-    font-size: 56px;
+    font-size: 24px;
     font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-weight: 700;
+    margin-top: 70px;
 }
 .name {
     color: #FFF;
@@ -28,6 +31,7 @@ body:after {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .nameIn {
     width: 20rem;
@@ -39,7 +43,9 @@ input[type="text"] {
     font-weight: bold;
 }
 .beginBtn {
-    width: 437px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    max-width: 100vw;
     height: 74px;
     border-radius: 28px;
     box-shadow: 0px 5.660377502441406px 28.30188751220703px 0px rgba(0, 0, 0, 0.25);
@@ -60,10 +66,11 @@ input[type="text"] {
     }
     input[type="text"]
     {
-        font-size: 20px;
+        font-size: 18px;
     }
     #logoMobile {
-        width: 260px;
+        width: 350px;
+        max-width: 100vw;
     }
 }
 @media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ 
@@ -73,9 +80,7 @@ body {
     }
 }
 @media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
-    #logoMobile {
-        width: 350px;
-    }
+    
     .readyTo {
         font-size: 60px;
     }
@@ -95,12 +100,15 @@ body {
         background: url('../img/background.jpg');
         background-size: 2400px 1400px; 
     }
-    
+    .beginBtn {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
     .name {
         font-size: 43px;
     }
     input[type="text"]
     {
-        font-size: 30px;
+        font-size: 26px;
     }
 }
