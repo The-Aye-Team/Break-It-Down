@@ -86,7 +86,7 @@ body::after {
     width: 28px;
   }
 
-@media (min-width: 762px) {
+@media (min-width: 765px) {
   #btnContainer {
     width: 40vw;
   }
