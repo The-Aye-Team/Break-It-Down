@@ -3,8 +3,7 @@ body {
     position: relative;
     min-height: 100vh;
     background: url('../img/background.jpeg');
-    background-size: 2400px 1400px; 
-    
+    background-size: 2400px 1400px;     
 }
 body:after {
     content: "";
@@ -104,6 +103,7 @@ body {
     .mobileLogo {
         display: none;
     }
+
     .beginBtn {
         padding-left: 10rem;
         padding-right: 10rem;
