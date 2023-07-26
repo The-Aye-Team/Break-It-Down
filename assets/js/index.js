@@ -19,7 +19,7 @@ let myName = localStorage.getItem("userName");
 
 // Saves name of user to local storage
 if (document.querySelector(".nameIn") != null) {
-const btnClick = () => {
+btnClick = () => {
     const nameInput = document.querySelector(".nameIn").value;
     localStorage.setItem("userName", nameInput);
 };
