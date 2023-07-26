@@ -7,6 +7,10 @@ body {
   min-height: 100vh;
   overflow-y: hidden;
 }
+#checkmarkWrapper, #addTask {
+  border: solid;
+  border-radius: 15px;
+}
 
 body::after {
   content: "";
