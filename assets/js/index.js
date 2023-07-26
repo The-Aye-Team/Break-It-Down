@@ -8,11 +8,8 @@ window.addEventListener("DOMContentLoaded", () => {
   console.log("Window loaded");
 });
 
-// Fetching OpenAI data
-const beginBtn = document.querySelector(".beginBtn");
-
 // Saves name of user to local storage
-beginBtn.addEventListener('click', () => {
+document.querySelector(".beginBtn").addEventListener('click', () => {
     const nameInput = document.querySelector('.nameIn').value;
     localStorage.setItem('userName' , nameInput);
 });
