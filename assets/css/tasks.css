@@ -3,7 +3,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 body::after {
@@ -20,6 +20,7 @@ body::after {
 .logo-wrapper img {
   width: auto;
   height: 3.3rem;
+  max-width: 100vw;
 }
 
 .message {
@@ -38,4 +39,37 @@ body::after {
   top: 0px;
   opacity: 0;
   display: none;
+}
+
+#addTaskText {
+  color: #000;
+  font-family: Open Sans;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+@media (min-width:320px)  { 
+  #btnContainer {
+    width: 100vw;
+  }
+  #addTaskText {
+    font-size: 20px;
+  }
+  #checkImg {
+    width: 28px;
+  }
+
+@media (min-width: 762px) {
+  #btnContainer {
+    width: 40vw;
+  }
+}
+
+@media (min-width: 1281px) {
+  #btnContainer {
+    width: 25vw;
+  }
+}
 }
