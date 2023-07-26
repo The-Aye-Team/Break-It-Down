@@ -17,6 +17,11 @@ body::after {
   z-index: -1;
 }
 
+.logo-wrapper img {
+  width: auto;
+  height: 3.3rem;
+}
+
 .message {
   position: relative;
   top: 250px;
@@ -27,4 +32,10 @@ body::after {
 .fadeIn {
   top: 200px;
   opacity: 1;
+}
+
+.fadeAway {
+  top: 0px;
+  opacity: 0;
+  display: none;
 }
