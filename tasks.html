@@ -52,10 +52,19 @@
             <i class="fa-solid fa-chevron-down"></i>
           </a>
 
-          <div class="collapse" id="collapseExample1">
+          <div class="collapse position-relative bigTask" id="collapseExample1">
+            <div class="headerButtons d-flex flex-row justify-content-between ">
+              <div>
+                <span class="pl-2">Calendar <i class="calendarIcon fa-regular fa-calendar" style="color: #FFFCFC;"></i> </span>
+              </div>
+              <div class="deleteBigTaskBtn">
+                <span class="pr-2"><i class="fa-solid fa-trash deleteIconTask" style="color: #f0f2f5;"></i> Delete</span>
+              </div>
+            </div>
             <div class="card card-body border border-3 border-primary">
+              
               <!-- Individual subtask card -->
-              <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+              <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3 mt-2">
                 <div class="d-flex align-items-center">
                   <i class="fa-solid fa-circle"></i>
                   <input class="subTaskText" type="text" value="Sub Task" readonly>
