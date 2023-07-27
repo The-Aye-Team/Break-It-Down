@@ -1,7 +1,11 @@
+
+ 
+
+
 /* HIDIING TASKS CONTAINER, TASK CONTAINER BLOCKS BUTTON  */
-.tasks-container {
-    /* display: none; */
-}
+/* .tasks-container {
+    display: none;
+} */
 /* ======= */
 
 h1 {
@@ -45,7 +49,6 @@ body::after {
 }
 
 .dropdown {
-  width: 100%;
   background: #3c493f;
   position: relative;
 }
@@ -55,8 +58,8 @@ body::after {
   color: #d9d9d9;
 }
 
-#logo {
-  text-align: center;
+#logoContainer {
+  /* text-align: left; */
   padding-top: 8%;
   padding-bottom: 8%;
 }
@@ -143,7 +146,33 @@ ul {
   font-style: italic;
 }
 
+#time-completed {
+  margin-left: auto;
+  margin-right: 5px;
+  font-style: italic;
+}
+
+
 .fa-solid.fa-circle {
   font-size: 7px;
   margin-right: 5px;
 }
+
+
+
+ /* @media (min-width:480px)  { smartphones, Android phones, landscape iPhone  */
+   /* body {  */
+  
+
+
+  @media (min-width:992px)  { /* hi-res laptops and desktops */ 
+    #logo {
+      max-width: 50%;
+    }
+
+   
+  }
+
+  /* @media screen (min-width:768px) {
+
+  } */
