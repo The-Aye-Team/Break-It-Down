@@ -55,18 +55,37 @@
           <div class="collapse" id="collapseExample1">
             <div class="card card-body border border-3 border-primary">
               <!-- Individual subtask card -->
-              <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+              <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
                 <div class="d-flex align-items-center">
                   <i class="fa-solid fa-circle"></i>
                   <input class="subTaskText" type="text" value="Sub Task" readonly maxlength="75">
                 </div>
                 <div class="editBtn">
-                  <img id="editIcon" src="assets/img/editIcon.png" style="width: 13px;">
+                  <img class="editIcon" src="assets/img/editIcon.png" style="width: 13px;">
+                </div>
+                <div class="deleteBtn">
+                  <img class="deleteIcon" src="assets/img/garbageIcon.png" style="width: 15px;">
                 </div>
                 <div>
                   <span class="text-secondary" id="time-completed">1:30 PM</span>
                 </div>
               </div>
+              <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-circle"></i>
+                  <input class="subTaskText" type="text" value="Sub Task" readonly>
+                </div>
+                <div class="editBtn">
+                  <img class="editIcon" src="assets/img/editIcon.png" style="width: 13px;">
+                </div>
+                <div class="deleteBtn">
+                  <img class="deleteIcon" src="assets/img/garbageIcon.png" style="width: 15px;">
+                </div>
+                <div>
+                  <span class="text-secondary" id="time-completed">1:30 PM</span>
+                </div>
+              </div>
+              
               <!-- Closed Individual subtask card -->
               <!-- Individual subtask card -->
               <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
