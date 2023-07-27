@@ -58,20 +58,21 @@ const addTask = () => {
       </div>
     `;
 
-  taskContainer.innerHTML += tasks;
+  taskContainer.insertAdjacentHTML("beforeend", tasks);
 
-  const focus = document.querySelector(`#input${randId}`);
+  const focus = document.querySelectorAll(`#input${randId}`);
 
-  console.log(focus);
+  [...focus].forEach((item) => {
+    item.focus();
+    item.addEventListener("keypress", (e) => {
+      if (e.key === `Enter`) {
+        const taskInput = item.value;
+        console.log(taskInput);
+        item.readOnly = true;
+      }
+    });
 
-  focus.focus();
-
-  focus.addEventListener("keypress", (e) => {
-    if (e.key === `Enter`) {
-      const taskInput = focus.value;
-      console.log(taskInput);
-      focus.readOnly = true;
-    }
+    console.log(item);
   });
 };
 
