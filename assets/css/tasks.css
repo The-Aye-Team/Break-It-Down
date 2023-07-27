@@ -61,13 +61,18 @@ input:focus {
 .fadeInTaskView {
   top: 0;
 }
-
+.deleteBtn:hover {
+  cursor: pointer;
+}
 .fadeAway {
   top: 0px;
   opacity: 0;
   display: none;
 }
-
+.deleteIcon {
+  width: 15px;
+  margin-right: 5px;
+}
 #addTaskText {
   color: #000;
   font-family: Open Sans;
