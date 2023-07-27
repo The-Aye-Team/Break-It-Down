@@ -32,26 +32,45 @@
         <div id="container2">
           <div class="task-wrapper mb-3 w-100">
             <a 
-              class="btn btn-primary w-100 mb-2 text-start"
+              class="btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold "
               data-bs-toggle="collapse"
               href="#collapseExample1"
               role="button"
               aria-expanded="false"
               aria-controls="collapseExample"
-              style="text-align: left"
+              style="text-align: left; font-weight: bold;"
               id = "dropdownMenuButton"
             >
-              Grocery Shopping <i class="fa-solid fa-chevron-down"></i>
+              Grocery Shopping 
+              <span class="text-secondary " id="time-complete">1:30 PM</span>
+              <i class="fa-solid fa-chevron-down"></i>
             </a>
 
             <div class="collapse" id="collapseExample1">
-              <div class="card card-body">
-                <ul class="list-group">
-                  <li>Some placeholder content for the collapse component.</li>
-                  <li>This panel is hidden by default but revealed when </li> 
-                  <li>the user activates the
-                  relevant trigger.</li>
-                </ul>
+              <div class="card card-body border border-3 border-primary">
+                <!-- Individual subtask card -->
+                <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-circle"></i>
+                    Sub Task
+                  </div>
+                  <div>
+                    <span class="text-secondary" id="time-completed">1:30 PM</span>
+                  </div>
+                </div>
+                <!-- Closed Individual subtask card -->
+
+                <!-- Individual subtask card -->
+                <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-circle"></i>
+                    Sub Task
+                  </div>
+                  <div>
+                    <span class="text-secondary" id="time-completed">1:30 PM</span>
+                  </div>
+                </div>
+                <!-- Closed Individual subtask card -->
               </div>
             </div>
           </div>
@@ -79,81 +98,8 @@
                 </ul>
               </div>
             </div>
-          </div><div class="task-wrapper mb-3 w-100">
-            <a 
-              class="btn btn-primary w-100 mb-2 text-start"
-              data-bs-toggle="collapse"
-              href="#collapseExample3"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-              style="text-align: left"
-              id = "dropdownMenuButton"
-            >
-              Clean garage <i class="fa-solid fa-chevron-down"></i>
-            </a>
-
-            <div class="collapse" id="collapseExample3">
-              <div class="card card-body">
-                <ul class="list-group">
-                  <li>Some placeholder content for the collapse component.</li>
-                  <li>This panel is hidden by default but revealed when </li> 
-                  <li>the user activates the
-                  relevant trigger.</li>
-                </ul>
-              </div>
-            </div>
           </div>
-          <div class="task-wrapper mb-3 w-100">
-            <a 
-              class="btn btn-primary w-100 mb-2 text-start"
-              data-bs-toggle="collapse"
-              href="#collapseExample4"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-              style="text-align: left"
-              id = "dropdownMenuButton"
-            >
-              Wash the car <i class="fa-solid fa-chevron-down"></i>
-            </a>
-
-            <div class="collapse" id="collapseExample4">
-              <div class="card card-body">
-                <ul class="list-group">
-                  <li>Some placeholder content for the collapse component."</li>
-                  <li>This panel is hidden by default but revealed when </li> 
-                  <li>the user activates the
-                  relevant trigger.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="task-wrapper mb-3 w-100">
-            <a 
-              class="btn btn-primary w-100 mb-2 text-start"
-              data-bs-toggle="collapse"
-              href="#collapseExample"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample5"
-              style="text-align: left"
-              id = "dropdownMenuButton"
-            >
-              Clean my son's bedroom <i class="fa-solid fa-chevron-down"></i>
-            </a>
-
-            <div class="collapse" id="collapseExample5">
-              <div class="card card-body">
-                <ul class="list-group">
-                  <li>Some placeholder content for the collapse component.</li>
-                  <li>This panel is hidden by default but revealed when </li> 
-                  <li>the user activates the
-                  relevant trigger.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          
     </section>
 
     <div id="backButton">
