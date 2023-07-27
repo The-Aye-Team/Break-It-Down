@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const addTask = () => {
   const taskContainer = document.querySelector("#tasks-container .tasks-list");
-  console.log("Before Task is added");
+
   const randId = Math.floor(Math.random() * 10000);
 
   let tasks = `
@@ -23,7 +23,7 @@ const addTask = () => {
           style="text-align: left; font-weight: bold;"
           id = "dropdownMenuButton"
         >
-          Grocery Shopping 
+        <input class="focus" type="text" maxlength="75" id="input${randId}">
           <span class="text-secondary " id="time-complete">1:30 PM</span>
           <i class="fa-solid fa-chevron-down"></i>
         </a>
@@ -60,16 +60,27 @@ const addTask = () => {
 
   taskContainer.innerHTML += tasks;
 
-  console.log("After Task is added");
+  const focus = document.querySelector(`#input${randId}`);
+
+  console.log(focus);
+
+  focus.focus();
+
+  focus.addEventListener("keypress", (e) => {
+    if (e.key === `Enter`) {
+      const taskInput = focus.value;
+      console.log(taskInput);
+      focus.readOnly = true;
+    }
+  });
 };
 
 inputField = document.querySelectorAll("input");
 
 [...inputField].forEach((input) => {
-  console.log(input);
   input.addEventListener("input", () => {
     let value = input.value;
-    let width = value.length * 8 + 20; // 8 is typically the character limit.
+    let width = value.length * 8 + 8; // 8 is typically the character limit.
     input.style.width = width + "px";
   });
 });
