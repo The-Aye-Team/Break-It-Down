@@ -105,15 +105,13 @@ input:focus {
   transform: translate(-50%, 0);
 }
 
-@media (min-width:320px)  { 
-
 input {
   border: none;
   padding: 5px;
+  background: transparent;
 }
-}
-@media (min-width: 320px) {
 
+@media (min-width: 320px) {
   #btnContainer {
     width: 100vw;
   }
