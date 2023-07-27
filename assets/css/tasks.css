@@ -7,7 +7,8 @@ body {
   min-height: 100vh;
   overflow-y: hidden;
 }
-#checkmarkWrapper, #addTask {
+#checkmarkWrapper,
+#addTask {
   border: solid;
   border-radius: 15px;
 }
@@ -47,7 +48,9 @@ body::after {
   opacity: 0;
   transition: 0.2s all ease-in-out;
 }
-
+input:focus {
+  outline: none;
+}
 /* Fade Logic */
 .fadeIn,
 .fadeInTaskView {
@@ -80,8 +83,15 @@ body::after {
   transform: translate(-50%, 0);
 }
 
-
 @media (min-width:320px)  { 
+
+input {
+  border: none;
+  padding: 5px;
+}
+}
+@media (min-width: 320px) {
+
   #btnContainer {
     width: 100vw;
   }
@@ -92,22 +102,22 @@ body::after {
     width: 28px;
   }
 
-@media (min-width: 765px) {
-  #btnContainer {
-    width: 40vw;
+  @media (min-width: 765px) {
+    #btnContainer {
+      width: 40vw;
+    }
+    #checkmarkWrapper {
+      padding-right: 37px;
+    }
   }
-  #checkmarkWrapper {
-    padding-right: 37px;
+  @media (min-width: 872px) {
+    #checkmarkWrapper {
+      padding-right: 10px;
+    }
   }
-}
-@media (min-width: 872px) {
-  #checkmarkWrapper {
-    padding-right: 10px;
+  @media (min-width: 1281px) {
+    #btnContainer {
+      width: 25vw;
+    }
   }
-}
-@media (min-width: 1281px) {
-  #btnContainer {
-    width: 25vw;
-  }
-}
 }
