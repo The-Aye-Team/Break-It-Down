@@ -14,14 +14,22 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/completestyle.css" />
-    <script
-      src="https://kit.fontawesome.com/8cee7d6611.js"
-      crossorigin="anonymous"
-    ></script>
     
   </head>
   <body>
-    <div id="logo"><img src="assets/img/Mobile_Logo.png" width="95%" /></div>
+
+    <div class = "d-flex justify-content-around align-items-center">
+    <div id="logoContainer" class="ml-4 pt-lg-4 pt-xl-4 pb-lg-7 pb-xl-7 align-self-start">
+      <img id = "logo" src="../assets/img/LogoDesktop.png" width = "95%" /></div>
+    <div id="backBtnDesktop" class="pt-xl-4 w-25 d-none pt-lg-4 d-lg-block d-xl-block align-self-start">
+      <div id="backButtonDesktop">
+        <button class="btn btn-primary w-100" id="back" 
+        onclick = "window.location.href = 'tasks.html';"
+        ><span id="backText">BACK</span></button>
+      </div>
+      </div>
+    </div>
+
 
           
     <section class="tasks-container" id="tasks-container">
@@ -75,34 +83,56 @@
               </div>
             </div>
           </div>
+
+
+          
           <div class="task-wrapper mb-3 w-100">
             <a 
-              class="btn btn-primary w-100 mb-2 text-start"
+              class="btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold "
               data-bs-toggle="collapse"
               href="#collapseExample2"
               role="button"
               aria-expanded="false"
               aria-controls="collapseExample"
-              style="text-align: left"
+              style="text-align: left; font-weight: bold;"
               id = "dropdownMenuButton"
             >
-              Prepare for vacation <i class="fa-solid fa-chevron-down"></i>
+              Prepare For Vacation 
+              <span class="text-secondary " id="time-complete">2:30 PM</span>
+              <i class="fa-solid fa-chevron-down"></i>
             </a>
 
             <div class="collapse" id="collapseExample2">
-              <div class="card card-body">
-                <ul class="list-group">
-                  <li>Some placeholder content for the collapse component.</li>
-                  <li>This panel is hidden by default but revealed when </li> 
-                  <li>the user activates the
-                  relevant trigger.</li>
-                </ul>
+              <div class="card card-body border border-3 border-primary">
+                <!-- Individual subtask card -->
+                <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-circle"></i>
+                    Sub Task
+                  </div>
+                  <div>
+                    <span class="text-secondary" id="time-completed">1:30 PM</span>
+                  </div>
+                </div>
+                <!-- Closed Individual subtask card -->
+
+                <!-- Individual subtask card -->
+                <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+                  <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-circle"></i>
+                    Sub Task
+                  </div>
+                  <div>
+                    <span class="text-secondary" id="time-completed">1:30 PM</span>
+                  </div>
+                </div>
+                <!-- Closed Individual subtask card -->
               </div>
             </div>
           </div>
           
     </section>
-<div id="backBtnContainer" class="w-25">
+<div id="backBtnContainer" class="w-25 d-lg-none d-xl-none">
     <div id="backButton">
       <button class="btn btn-primary w-100" id="back" 
       onclick = "window.location.href = 'tasks.html';"
@@ -116,5 +146,9 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"
   ></script>
-  <script type="module" src="assets/js/completescript.js"></script>
+  <script type="module" src="assets/css/completescript.js"></script>
+  <script
+  src="https://kit.fontawesome.com/8cee7d6611.js"
+  crossorigin="anonymous"
+></script>
 </html>
