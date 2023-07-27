@@ -37,7 +37,7 @@ body::after {
 }
 
 .tasks-container > .tasks-list {
-  height: 70vh;
+  height: 60vh;
   overflow-y: scroll;
 }
 
@@ -45,7 +45,6 @@ body::after {
   position: relative;
   top: 200px;
   opacity: 0;
-
   transition: 0.2s all ease-in-out;
 }
 
@@ -74,6 +73,13 @@ body::after {
   font-weight: 600;
   line-height: normal;
 }
+#btnContainer {
+  position: fixed;
+  left: 50%;
+  bottom: 5vh;
+  transform: translate(-50%, 0);
+}
+
 
 @media (min-width:320px)  { 
   #btnContainer {
@@ -90,8 +96,15 @@ body::after {
   #btnContainer {
     width: 40vw;
   }
+  #checkmarkWrapper {
+    padding-right: 37px;
+  }
 }
-
+@media (min-width: 872px) {
+  #checkmarkWrapper {
+    padding-right: 10px;
+  }
+}
 @media (min-width: 1281px) {
   #btnContainer {
     width: 25vw;
