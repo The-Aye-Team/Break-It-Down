@@ -1,8 +1,11 @@
 /* HIDIING TASKS CONTAINER, TASK CONTAINER BLOCKS BUTTON  */
-.tasks-container {
-    /* display: none; */
+.editBtn {
+    margin-right: auto;
+    margin-left: 5px;
+  }
+.editBtn:hover {
+    cursor: pointer;
 }
-/* ======= */
 
 h1 {
   color: #d9d9d9;

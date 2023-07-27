@@ -80,7 +80,6 @@ body::after {
   transform: translate(-50%, 0);
 }
 
-
 @media (min-width:320px)  { 
   #btnContainer {
     width: 100vw;

@@ -20,7 +20,7 @@
     
   </head>
   <body>
-    <div id="logo"><img src="../assets/img/Mobile_Logo.png" width="95%" /></div>
+    <div id="logo"><img src="assets/img/Mobile_Logo.png" width="95%" /></div>
 
           
     <section class="tasks-container" id="tasks-container">
@@ -52,7 +52,10 @@
                 <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
                   <div class="d-flex align-items-center">
                     <i class="fa-solid fa-circle"></i>
-                    Sub Task
+                    <input class="subTaskText" type="text" readOnly="true" value="Sub Task">  
+                  </div>
+                  <div class="editBtn">
+                    <img id="editIcon" src="assets/img/editIcon.png" style="width: 13px;">
                   </div>
                   <div>
                     <span class="text-secondary" id="time-completed">1:30 PM</span>
@@ -114,5 +117,5 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"
   ></script>
-  <script type="module" src="assets/css/completescript.js"></script>
+  <script type="module" src="assets/js/completescript.js"></script>
 </html>
