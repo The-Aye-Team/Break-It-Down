@@ -1,3 +1,5 @@
+import completescript from "./completescript";
+import buttonGrab from completescript;
 const container = document.querySelector("#tasks-container");
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -14,7 +16,7 @@ const addTask = () => {
   let tasks = `
         <div class="task-wrapper mb-3 w-100">
         <a 
-          class="btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold "
+          class="genTask btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold "
           data-bs-toggle="collapse"
           href="#collapseExample${randId}"
           role="button"
@@ -27,35 +29,19 @@ const addTask = () => {
           <span class="text-secondary " id="time-complete">1:30 PM</span>
           <i class="fa-solid fa-chevron-down"></i>
         </a>
-
-        <div class="collapse" id="collapseExample${randId}">
-          <div class="card card-body border border-3 border-primary">
-            <!-- Individual subtask card -->
-            <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
-              <div class="d-flex align-items-center">
-                <i class="fa-solid fa-circle"></i>
-                Sub Task
-              </div>
+      <div class="collapse position-relative bigTask" id="collapseExample${randId}">
+            <div class="headerButtons d-flex flex-row justify-content-between ">
               <div>
-                <span class="text-secondary" id="time-completed">1:30 PM</span>
+                <span class="pl-2">Calendar <i class="calendarIcon fa-regular fa-calendar" style="color: #FFFCFC;"></i> </span>
+              </div>
+              <div class="deleteBigTaskBtn">
+                <span class="pr-2"><i class="fa-solid fa-trash deleteIconTask" style="color: #f0f2f5;"></i> Delete</span>
               </div>
             </div>
-            <!-- Closed Individual subtask card -->
-
-            <!-- Individual subtask card -->
-            <div class="d-flex justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
-              <div class="d-flex align-items-center">
-                <i class="fa-solid fa-circle"></i>
-                Sub Task
-              </div>
-              <div>
-                <span class="text-secondary" id="time-completed">1:30 PM</span>
-              </div>
+            <div class="card card-body border border-3 border-primary subtask-container">
+              
             </div>
-            <!-- Closed Individual subtask card -->
           </div>
-        </div>
-      </div>
     `;
 
   taskContainer.insertAdjacentHTML("beforeend", tasks);
@@ -93,7 +79,7 @@ function getAiData(task) {
 
   myHeaders.append(
     "Authorization",
-    "Bearer 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"
+    "Bearer API KEY HERE"
   );
 
   var raw = JSON.stringify({
@@ -118,9 +104,37 @@ function getAiData(task) {
       const replacedTextResult = textResult.replace(/[\n.]*/g, "");
       console.log(replacedTextResult);
       const newArray = replacedTextResult.split(", ");
-      console.log(newArray);
+
+      newArray.forEach((item) => {
+        createSubtask(item);
+      });
     })
     .catch((error) => console.log("error", error));
 
   // This completes the script
 }
+
+function createSubtask(taskName) {
+  const subtaskContainer = document.querySelector(".subtask-container");
+  const newSubtask = `
+  <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3 mt-2">
+  <div class="d-flex align-items-center">
+    <i class="fa-solid fa-circle"></i>
+    <input class="subTaskText" type="text" value="${taskName}" readonly>
+  </div>
+  <div class="editBtn">
+    <img class="editIcon" src="assets/img/editIcon.png" style="width: 13px;">
+  </div>
+  <div class="deleteBtn">
+    <img class="deleteIcon" src="assets/img/garbageIcon.png" style="width: 15px;">
+  </div>
+  <div>
+    <span class="text-secondary" id="time-completed">1:30 PM</span>
+  </div>
+</div>
+  `;
+  buttonGrab();
+  subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
+  document.querySelector(`.genTask`).click();
+}
+
