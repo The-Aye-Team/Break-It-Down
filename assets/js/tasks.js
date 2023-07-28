@@ -1,5 +1,4 @@
-import completescript from "./completescript";
-import buttonGrab from completescript;
+
 const container = document.querySelector("#tasks-container");
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -79,7 +78,7 @@ function getAiData(task) {
 
   myHeaders.append(
     "Authorization",
-    "Bearer API KEY HERE"
+    "Bearer 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"
   );
 
   var raw = JSON.stringify({
@@ -133,8 +132,9 @@ function createSubtask(taskName) {
   </div>
 </div>
   `;
-  buttonGrab();
   subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
+  console.log(subtaskContainer.lastElementChild);
+  btnEvent(subtaskContainer.lastElementChild);
   document.querySelector(`.genTask`).click();
 }
 

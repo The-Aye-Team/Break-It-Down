@@ -1,11 +1,8 @@
-function deleteSubTask(e) {
-  e.currentTarget.parentNode.remove();
-}
-// CLICK EVENT ON EDIT BUTTON
-let subTaskArr = document.querySelectorAll(`.subTaskWrapper`);
-let taskArr = document.querySelectorAll(`.headerButtons`);
-
-for (i = 0; i < subTaskArr.length; i++) {
+function btnEvent(subTask) {
+  function deleteSubTask(e) {
+    e.currentTarget.parentNode.remove();
+  }
+  // CLICK EVENT ON EDIT BUTTON
   function finishEdit() {
     if (subTaskText.readOnly == true) {
       subTaskText.readOnly = false;
@@ -15,9 +12,9 @@ for (i = 0; i < subTaskArr.length; i++) {
     }
   }
 
-  let editBtn = subTaskArr[i].querySelector(`.editBtn`);
-  let subTaskText = subTaskArr[i].querySelector(`.subTaskText`);
-  let deleteBtn = subTaskArr[i].querySelector(`.deleteBtn`);
+  let editBtn = subTask.querySelector(`.editBtn`);
+  let subTaskText = subTask.querySelector(`.subTaskText`);
+  let deleteBtn = subTask.querySelector(`.deleteBtn`);
 
   deleteBtn.addEventListener(`click`, (e) => {
     deleteSubTask(e);
@@ -33,19 +30,14 @@ for (i = 0; i < subTaskArr.length; i++) {
       finishEdit();
     }
   });
+  let deleteTaskBtn = subTask.parentNode.querySelector(`.deleteBigTaskBtn`);
+  console.log(subTask.parentNode.parentNode);
+  deleteTaskBtn.addEventListener("click", (e) => {
+    bigTaskDel(subTask.parentNode.parentNode);
+  });
 }
 
-function deleteBtnController() {
-  function bigTaskDel(e) {
-    e.currentTarget.closest(`.task-wrapper`).remove();
-  }
-
-  for (i = 0; i < taskArr.length; i++) {
-    console.log(taskArr[i]);
-    let deleteTaskBtn = taskArr[i].querySelector(`.deleteBigTaskBtn`);
-
-    deleteTaskBtn.addEventListener("click", (e) => {
-      bigTaskDel(e);
-    });
-  }
+function bigTaskDel(e) {
+    console.log(e.currentTarget.closest(`.`));
+  e.currentTarget.closest(`.genTask`).remove();
 }
