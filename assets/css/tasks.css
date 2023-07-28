@@ -23,6 +23,10 @@ body::after {
   background: rgba(60, 73, 63, 0.8);
   z-index: -1;
 }
+.checkmarkBtn:hover, .fa-check:hover {
+cursor: pointer;
+color: green;
+}
 
 .logo-wrapper img {
   width: auto;
