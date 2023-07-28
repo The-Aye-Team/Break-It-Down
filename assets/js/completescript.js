@@ -4,11 +4,11 @@ function btnEvent(subTask) {
   }
   // CLICK EVENT ON EDIT BUTTON
   function finishEdit() {
-    if (subTaskText.readOnly == true) {
-      subTaskText.readOnly = false;
+    if (!subTaskText.contenteditable) {
+      subTaskText.setAttribute(`contenteditable`, true);
       subTaskText.focus();
     } else {
-      subTaskText.readOnly = true;
+        subTaskText.removeAttribute(`contenteditable`);
     }
   }
 
@@ -27,7 +27,8 @@ function btnEvent(subTask) {
   // LISTENING FOR ENTER KEY
   subTaskText.addEventListener("keypress", (e) => {
     if (e.key === `Enter`) {
-      finishEdit();
+        e.preventDefault();
+        subTaskText.removeAttribute(`contenteditable`);
     }
   });
   let deleteTaskBtn = subTask.parentNode.parentNode.querySelector(`.deleteBigTaskBtn`);

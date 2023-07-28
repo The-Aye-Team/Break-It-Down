@@ -79,7 +79,7 @@ function getAiData(task) {
 
   myHeaders.append(
     "Authorization",
-    "Bearer API KEY"
+    "Bearer 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"
   );
 
   var raw = JSON.stringify({
@@ -121,7 +121,7 @@ function createSubtask(taskName) {
   <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3 mt-2">
   <div class="d-flex align-items-center">
     <i class="fa-solid fa-circle"></i>
-    <input class="subTaskText" type="text" value="${taskName}" readonly>
+    <div class="subTaskText" type="text" contenteditable>${taskName}</div>
   </div>
   <div class="editBtn">
     <img class="editIcon" src="assets/img/editIcon.png" style="width: 13px;">

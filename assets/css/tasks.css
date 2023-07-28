@@ -48,7 +48,7 @@ body::after {
   opacity: 0;
   transition: 0.2s all ease-in-out;
 }
-input:focus {
+input:focus, .subTaskText:focus {
   outline: none;
 }
 /* Fade Logic */
@@ -104,11 +104,16 @@ input:focus {
   bottom: 5vh;
   transform: translate(-50%, 0);
 }
-
 input {
   border: none;
   padding: 5px;
   background: transparent;
+  min-height: auto;
+}
+
+.subTaskText {
+  max-width: 250px;
+  font-size: 24px;
 }
 
 @media (min-width: 320px) {
@@ -121,7 +126,17 @@ input {
   #checkImg {
     width: 28px;
   }
-
+  .subTaskText {
+    max-width: 75px;
+    font-size: small;
+  }
+}
+@media (min-width: 480px) {
+  .subTaskText {
+    max-width: 200px;
+    font-size: small;
+  }
+}
   @media (min-width: 765px) {
     #btnContainer {
       width: 40vw;
@@ -129,6 +144,9 @@ input {
     #checkmarkWrapper {
       padding-right: 37px;
     }
+   .subTaskText {
+    max-width: 450px;
+}
   }
   @media (min-width: 872px) {
     #checkmarkWrapper {
@@ -140,4 +158,4 @@ input {
       width: 25vw;
     }
   }
-}
+
