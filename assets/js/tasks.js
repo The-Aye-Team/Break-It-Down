@@ -77,10 +77,9 @@ function getAiData(task) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  myHeaders.append(
-    "Authorization",
-    "Bearer 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"
-  );
+
+  myHeaders.append("Authorization", `Bearer ${API_KEY}`);
+
 
   var raw = JSON.stringify({
     model: "text-davinci-003",
