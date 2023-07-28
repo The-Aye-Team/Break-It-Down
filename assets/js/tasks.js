@@ -77,7 +77,10 @@ function getAiData(task) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
+
   myHeaders.append("Authorization", `Bearer ${process.env.API_KEY}`);
+
+
 
   var raw = JSON.stringify({
     model: "text-davinci-003",
@@ -118,7 +121,7 @@ function createSubtask(taskName) {
   <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3 mt-2">
   <div class="d-flex align-items-center">
     <i class="fa-solid fa-circle"></i>
-    <input class="subTaskText" type="text" value="${taskName}" readonly>
+    <div class="subTaskText" type="text" contenteditable>${taskName}</div>
   </div>
   <div class="editBtn">
     <img class="editIcon" src="assets/img/editIcon.png" style="width: 13px;">
