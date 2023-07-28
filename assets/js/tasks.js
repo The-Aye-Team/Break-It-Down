@@ -78,7 +78,7 @@ function getAiData(task) {
 
   myHeaders.append(
     "Authorization",
-    "Bearer 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"
+    "Bearer API KEY"
   );
 
   var raw = JSON.stringify({

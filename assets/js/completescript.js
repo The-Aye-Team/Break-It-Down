@@ -30,14 +30,12 @@ function btnEvent(subTask) {
       finishEdit();
     }
   });
-  let deleteTaskBtn = subTask.parentNode.querySelector(`.deleteBigTaskBtn`);
-  console.log(subTask.parentNode.parentNode);
+  let deleteTaskBtn = subTask.parentNode.parentNode.querySelector(`.deleteBigTaskBtn`);
   deleteTaskBtn.addEventListener("click", (e) => {
-    bigTaskDel(subTask.parentNode.parentNode);
+    bigTaskDel(e);
   });
 }
 
 function bigTaskDel(e) {
-    console.log(e.currentTarget.closest(`.`));
-  e.currentTarget.closest(`.genTask`).remove();
+    e.currentTarget.closest(`.task-wrapper`).remove();
 }
