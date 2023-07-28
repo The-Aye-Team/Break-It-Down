@@ -1,4 +1,3 @@
-
 const container = document.querySelector("#tasks-container");
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -61,15 +60,17 @@ const addTask = () => {
   });
 };
 
-inputField = document.querySelectorAll("input");
+function customInputWidth() {
+  inputField = document.querySelectorAll("input");
 
-[...inputField].forEach((input) => {
-  input.addEventListener("input", () => {
-    let value = input.value;
-    let width = value.length * 8 + 8; // 8 is typically the character limit.
-    input.style.width = width + "px";
+  [...inputField].forEach((input) => {
+    input.addEventListener("input", () => {
+      let value = input.value;
+      let width = value.length * 8 + 8; // 8 is typically the character limit.
+      input.style.width = width + "px";
+    });
   });
-});
+}
 
 function getAiData(task) {
   // Fetch data from OpenAI
@@ -78,7 +79,7 @@ function getAiData(task) {
 
   myHeaders.append(
     "Authorization",
-    "Bearer API KEY"
+    "Bearer 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"
   );
 
   var raw = JSON.stringify({
@@ -106,6 +107,7 @@ function getAiData(task) {
 
       newArray.forEach((item) => {
         createSubtask(item);
+        customInputWidth();
       });
     })
     .catch((error) => console.log("error", error));
@@ -137,4 +139,3 @@ function createSubtask(taskName) {
   btnEvent(subtaskContainer.lastElementChild);
   document.querySelector(`.genTask`).click();
 }
-
