@@ -78,7 +78,8 @@ function getAiData(task) {
   myHeaders.append("Content-Type", "application/json");
 
 
-  myHeaders.append("Authorization", `Bearer ${API_KEY}`);
+  myHeaders.append("Authorization", `Bearer ${process.env.API_KEY}`);
+
 
 
   var raw = JSON.stringify({
