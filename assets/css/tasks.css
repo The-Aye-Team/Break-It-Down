@@ -57,7 +57,24 @@ input:focus {
   top: 200px;
   opacity: 1;
 }
-
+.calendarIcon {
+  width: 13px;
+}
+.deleteBigTaskBtn:hover {
+  cursor: pointer;
+}
+.headerButtons {
+  color: #FFFCFC;
+  background-color: #557D6A;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  border-radius: 4px 4px 0px 0px;
+}
+.deleteIconTask {
+  width: 13px;
+}
 .fadeInTaskView {
   top: 0;
 }

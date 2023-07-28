@@ -14,7 +14,7 @@ function deleteSubTask(e) {
 }
 // CLICK EVENT ON EDIT BUTTON 
 let subTaskArr = document.querySelectorAll(`.subTaskWrapper`);
-
+let taskArr = document.querySelectorAll(`.headerButtons`);
 
 
 for (i = 0; i < subTaskArr.length; i++) {
@@ -47,4 +47,14 @@ for (i = 0; i < subTaskArr.length; i++) {
           });
 };
 
+function bigTaskDel(e) {
+    e.currentTarget.closest(`.task-wrapper`).remove()
+}
+
+for (i=0; i < taskArr.length; i++) {
+    console.log(taskArr[i])
+    let deleteTaskBtn = taskArr[i].querySelector(`.deleteBigTaskBtn`);
+
+    deleteTaskBtn.addEventListener('click', (e) => {bigTaskDel(e)});
+}
 
