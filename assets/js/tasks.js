@@ -24,16 +24,15 @@ const addTask = () => {
           id = "dropdownMenuButton"
         >
         <input class="focus" type="text" maxlength="75" id="input${randId}">
-          <span class="text-secondary " id="time-complete">1:30 PM</span>
+        <div class="bigDelBtnWrap ml-auto mr-3">
+        <i class="fa-solid fa-trash deleteBigTaskBtn"></i>
+        </div>          
           <i class="fa-solid fa-chevron-down"></i>
         </a>
       <div class="collapse position-relative bigTask" id="collapseExample${randId}">
             <div class="headerButtons d-flex flex-row justify-content-between ">
               <div>
-                <span class="pl-2">Calendar <i class="calendarIcon fa-regular fa-calendar" style="color: #FFFCFC;"></i> </span>
-              </div>
-              <div class="deleteBigTaskBtn">
-                <span class="pr-2"><i class="fa-solid fa-trash deleteIconTask" style="color: #f0f2f5;"></i> Delete</span>
+                <span class="pl-2">Calendar <i class="calendarIcon fa-regular fa-calendar" style="color: #FFFCFC;"></i>
               </div>
             </div>
             <div class="card card-body border border-3 border-primary subtask-container">
@@ -121,13 +120,13 @@ function createSubtask(taskName) {
     <div class="subTaskText" type="text" contenteditable>${taskName}</div>
   </div>
   <div class="editBtn">
-    <img class="editIcon" src="assets/img/editIcon.png" style="width: 13px;">
+     <i class="fa-solid fa-pen editIcon"></i>
   </div>
   <div class="deleteBtn">
-    <img class="deleteIcon" src="assets/img/garbageIcon.png" style="width: 15px;">
+  <i class="fa-solid fa-trash deleteIcon"></i>
   </div>
   <div class="ml-2 checkmarkBtn">
-  <i class="fa-solid fa-check" style="color: #0f0f0f;"></i>
+  <i class="fa-solid fa-check checkmarkIcon"></i>
   </div>
 </div>
   `;
