@@ -1,0 +1,14 @@
+{
+  "name": "projectfocus",
+  "version": "1.0.0",
+  "description": "Welcome to the app you've been waiting for!",
+  "main": "tasks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
