@@ -44,6 +44,7 @@ const addTask = () => {
   taskContainer.insertAdjacentHTML("beforeend", tasks);
 
   const focus = document.querySelectorAll(`#input${randId}`);
+ 
 
   [...focus].forEach((item) => {
     item.focus();

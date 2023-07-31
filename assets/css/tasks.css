@@ -122,6 +122,14 @@ input:focus, .subTaskText:focus {
   bottom: 5vh;
   transform: translate(-50%, 0);
 }
+
+/* .upperContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+} */
+
 input {
   border: none;
   padding: 5px;
@@ -177,3 +185,8 @@ input {
     }
   }
 
+  @media (max-width: 992px) {
+    .deskTopView {
+      display:none;
+    }
+  }
