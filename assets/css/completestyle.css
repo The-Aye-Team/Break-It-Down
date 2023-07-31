@@ -161,10 +161,11 @@ ul {
 /* @media (min-width:480px)  { smartphones, Android phones, landscape iPhone  */
 /* body {  */
 
-@media (min-width: 992px) {
+@media (min-width: 990px) {
   /* hi-res laptops and desktops */
   #logo {
-    max-width: 50%;
+    min-width: 60%;
+    height: auto;
   }
 }
 

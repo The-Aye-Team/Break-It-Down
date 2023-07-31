@@ -24,11 +24,10 @@ body::after {
   z-index: -1;
 }
 .checkmarkIcon:hover {
-cursor: pointer;
-text-shadow: rgb(94, 158, 122) 1px 0 10px;
-border-radius: 20px;
-color: rgb(94, 158, 122);
-
+  cursor: pointer;
+  text-shadow: rgb(94, 158, 122) 1px 0 10px;
+  border-radius: 20px;
+  color: rgb(94, 158, 122);
 }
 .checkmarkBtn {
   padding: 5px;
@@ -58,7 +57,8 @@ color: rgb(94, 158, 122);
   opacity: 0;
   transition: 0.2s all ease-in-out;
 }
-input:focus, .subTaskText:focus {
+input:focus,
+.subTaskText:focus {
   outline: none;
 }
 /* Fade Logic */
@@ -76,15 +76,17 @@ input:focus, .subTaskText:focus {
   border-radius: 20px;
   text-shadow: rgb(237, 112, 40) 1px 0 10px;
 }
-.bigDelBtnWrap:hover, .deleteBtn:hover, .fa-x:hover {
+.bigDelBtnWrap:hover,
+.deleteBtn:hover,
+.fa-x:hover {
   cursor: pointer;
   color: rgb(243, 76, 76);
   border-radius: 20px;
   text-shadow: rgb(243, 76, 76) 1px 0 10px;
 }
 .headerButtons {
-  color: #FFFCFC;
-  background-color: #557D6A;
+  color: #fffcfc;
+  background-color: #557d6a;
   position: absolute;
   z-index: 1;
   left: 0;
@@ -97,7 +99,6 @@ input:focus, .subTaskText:focus {
 .fadeInTaskView {
   top: 0;
 }
-
 
 .fadeAway {
   top: 0px;
@@ -163,30 +164,30 @@ input {
     font-size: small;
   }
 }
-  @media (min-width: 765px) {
-    #btnContainer {
-      width: 40vw;
-    }
-    #checkmarkWrapper {
-      padding-right: 37px;
-    }
-   .subTaskText {
+@media (min-width: 765px) {
+  #btnContainer {
+    width: 40vw;
+  }
+  #checkmarkWrapper {
+    padding-right: 37px;
+  }
+  .subTaskText {
     max-width: 450px;
+  }
 }
+@media (min-width: 872px) {
+  #checkmarkWrapper {
+    padding-right: 10px;
   }
-  @media (min-width: 872px) {
-    #checkmarkWrapper {
-      padding-right: 10px;
-    }
+}
+@media (min-width: 1281px) {
+  #btnContainer {
+    width: 25vw;
   }
-  @media (min-width: 1281px) {
-    #btnContainer {
-      width: 25vw;
-    }
-  }
+}
 
-  @media (max-width: 992px) {
-    .deskTopView {
-      display:none;
-    }
+@media (max-width: 991px) {
+  .deskTopView {
+    display: none;
   }
+}
