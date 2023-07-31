@@ -7,10 +7,15 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 const addTask = () => {
+  let genTasks = [];
+  let singleTask = {
+    name: "",
+    subTasks: [],
+  };
+
   const taskContainer = document.querySelector("#tasks-container .tasks-list");
 
   const randId = Math.floor(Math.random() * 10000);
-
   let tasks = `
         <div class="task-wrapper mb-3 w-100">
         <a 
@@ -23,7 +28,7 @@ const addTask = () => {
           style="text-align: left; font-weight: bold;"
           id = "dropdownMenuButton"
         >
-        <input class="focus" type="text" maxlength="75" id="input${randId}">
+        <input class="focus" type="text" maxlength="75" id="input${randId}" value="${singleTask.name}">
           <span class="text-secondary " id="time-complete">1:30 PM</span>
           <i class="fa-solid fa-chevron-down"></i>
         </a>
@@ -45,18 +50,22 @@ const addTask = () => {
   taskContainer.insertAdjacentHTML("beforeend", tasks);
 
   const focus = document.querySelectorAll(`#input${randId}`);
-
   [...focus].forEach((item) => {
     item.focus();
-    item.addEventListener("keypress", (e) => {
+    item.addEventListener("keypress", async (e) => {
       if (e.key === `Enter`) {
         const taskInput = item.value;
-        console.log(taskInput);
+        singleTask.name = taskInput;
         item.readOnly = true;
-        getAiData(taskInput);
+        singleTask.subTasks = await getAiData(singleTask.name);
+        // console.log("whole task", taskContainer.lastElementChild.outerHTML);
+        // console.log(singleTask.subTasks);
+        console.log(singleTask);
+        saveTask(JSON.stringify(singleTask));
+        console.log(JSON.parse(getTask()));
       }
     });
-    console.log(item);
+    // console.log("whole item", item);
   });
 };
 
@@ -72,7 +81,7 @@ function customInputWidth() {
   });
 }
 
-function getAiData(task) {
+async function getAiData(task) {
   // Fetch data from OpenAI
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -93,22 +102,22 @@ function getAiData(task) {
     redirect: "follow",
   };
 
-  fetch("https://api.openai.com/v1/completions", requestOptions)
-    .then((response) => response.text())
-    .then((result) => {
-      const newresult = JSON.parse(result);
-      const textResult = newresult.choices[0].text;
-      const replacedTextResult = textResult.replace(/[\n.]*/g, "");
-      console.log(replacedTextResult);
-      const newArray = replacedTextResult.split(", ");
+  let response = await fetch(
+    "https://api.openai.com/v1/completions",
+    requestOptions
+  );
+  let result = await response.text();
+  const newresult = JSON.parse(result);
+  const textResult = newresult.choices[0].text;
+  const replacedTextResult = textResult.replace(/[\n.]*/g, "");
+  console.log(replacedTextResult);
+  const newArray = replacedTextResult.split(", ");
 
-      newArray.forEach((item) => {
-        createSubtask(item);
-        customInputWidth();
-      });
-    })
-    .catch((error) => console.log("error", error));
-
+  return newArray;
+  // newArray.forEach((item) => {
+  //   createSubtask(item);
+  //   customInputWidth();
+  // });
   // This completes the script
 }
 
