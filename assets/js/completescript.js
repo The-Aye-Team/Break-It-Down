@@ -33,12 +33,27 @@ function btnEvent(subTask) {
         subTaskText.removeAttribute(`contenteditable`);
     }
   });
-  let deleteTaskBtn = subTask.parentNode.parentNode.querySelector(`.deleteBigTaskBtn`);
-  deleteTaskBtn.addEventListener("click", (e) => {
-    bigTaskDel(e);
-  });
+  // let deleteTaskBtn = subTask.parentNode.parentNode.querySelector(`.deleteBigTaskBtn`);
+  // deleteTaskBtn.addEventListener("click", (e) => {
+  //   bigTaskDel(e);
+  // });
 }
 
-function bigTaskDel(e) {
+// function bigTaskDel(e) {
+//     e.currentTarget.closest(`.task-wrapper`).remove();
+// }
+
+let upperMost = document.querySelector('.upperMost')
+const callback = () => {
+  let deleteTaskBtns = document.querySelectorAll('.deleteBigTaskBtn');
+  for (let button of deleteTaskBtns) {
+  button.addEventListener("click", (e) => {
+  bigTaskDel(e);
+  function bigTaskDel(e) {
     e.currentTarget.closest(`.task-wrapper`).remove();
 }
+})}}
+let observer = new MutationObserver(callback);
+observer.observe(upperMost, {
+  childList:true
+});
