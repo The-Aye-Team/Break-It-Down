@@ -51,9 +51,9 @@ const addTask = () => {
     item.addEventListener("keypress", (e) => {
       if (e.key === `Enter`) {
         const taskInput = item.value;
-        console.log(taskInput);
+
         item.readOnly = true;
-        getAiData(taskInput);
+        getAiData(taskInput, item.closest(".task-wrapper"));
       }
     });
     console.log(item);
@@ -66,13 +66,13 @@ function customInputWidth() {
   [...inputField].forEach((input) => {
     input.addEventListener("input", () => {
       let value = input.value;
-      let width = value.length * 8 + 8; // 8 is typically the character limit.
+      let width = value.length * 8 + 8; // the first 8 is typically the character limit.
       input.style.width = width + "px";
     });
   });
 }
 
-function getAiData(task) {
+function getAiData(task, item) {
   // Fetch data from OpenAI
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -99,11 +99,11 @@ function getAiData(task) {
       const newresult = JSON.parse(result);
       const textResult = newresult.choices[0].text;
       const replacedTextResult = textResult.replace(/[\n.]*/g, "");
-      console.log(replacedTextResult);
+
       const newArray = replacedTextResult.split(", ");
 
-      newArray.forEach((item) => {
-        createSubtask(item);
+      newArray.forEach((singleItem) => {
+        createSubtask(item, singleItem);
         customInputWidth();
       });
     })
@@ -112,8 +112,8 @@ function getAiData(task) {
   // This completes the script
 }
 
-function createSubtask(taskName) {
-  const subtaskContainer = document.querySelector(".subtask-container");
+function createSubtask(item, taskName) {
+  const subtaskContainer = item.querySelector(".subtask-container");
   const newSubtask = `
   <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3 mt-2">
   <div class="d-flex align-items-center">
@@ -132,7 +132,6 @@ function createSubtask(taskName) {
 </div>
   `;
   subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
-  console.log(subtaskContainer.lastElementChild);
   btnEvent(subtaskContainer.lastElementChild);
-  document.querySelector(`.genTask`).click();
+  item.querySelector(`.genTask`).click();
 }
