@@ -25,15 +25,31 @@ function btnEvent(subTask) {
   checkmarkBtn.addEventListener(`click`, () => {
     if (!checkClick) {
       checkmarkBtn.querySelector(`.checkmarkIcon`).setAttribute(`class`, `fa-regular fa-x checkmarkIcon`);
-      checkmarkBtn.parentNode.setAttribute(`class`, `d-flex subTaskWrapper justify-content-between align-items-center bg-primary px-3 py-1 rounded-xl border border-3 border-primary mb-3 mt-2`);
+      checkmarkBtn.parentNode.classList.replace(`bg-white`, `bg-primary`);
+      checkmarkBtn.setAttribute(`data-isClicked`, `true`);
       checkClick = true;
+      isAllChecked();
       return;
     } 
     checkmarkBtn.querySelector(`.checkmarkIcon`).setAttribute(`class`, `fa-solid fa-check checkmarkIcon`);
-    checkmarkBtn.parentNode.setAttribute(`class`, `d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3 mt-2`);
+    checkmarkBtn.parentNode.classList.replace(`bg-primary`, `bg-white`);
+    checkmarkBtn.setAttribute(`data-isClicked`, `false`);
+    isAllChecked();
     checkClick = false;
   });
 
+
+  function isAllChecked() {
+    let checkmarks = document.querySelectorAll(`.checkmarkBtn`);
+    for (let item of checkmarks) {
+      if (item.getAttribute(`data-isClicked`) == `false`) {
+        checkmarkBtn.parentNode.parentNode.parentNode.parentNode.querySelector(`.genTask`).classList.replace(`bg-primary`, `bg-white`);
+        return;
+      }
+    }
+    checkmarkBtn.parentNode.parentNode.parentNode.parentNode.querySelector(`.genTask`).classList.replace(`bg-white`, `bg-primary`);
+    checkmarkBtn.parentNode.parentNode.parentNode.parentNode.querySelector(`.genTask`).click();
+  }
   deleteBtn.addEventListener(`click`, (e) => {
     deleteSubTask(e);
   });
@@ -57,10 +73,6 @@ function btnEvent(subTask) {
   });
 
 }
-
-// function bigTaskDel(e) {
-//     e.currentTarget.closest(`.task-wrapper`).remove();
-// }
 
 let upperMost = document.querySelector('.upperMost')
 const callback = () => {
