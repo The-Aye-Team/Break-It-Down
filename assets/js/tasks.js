@@ -14,7 +14,7 @@ const addTask = () => {
   let tasks = `
         <div class="task-wrapper mb-3 w-100">
         <a 
-          class="genTask btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold "
+          class="genTask btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold bg-white"
           data-bs-toggle="collapse"
           href="#collapseExample${randId}"
           role="button"
@@ -125,7 +125,7 @@ function createSubtask(item, taskName) {
   <div class="deleteBtn">
   <i class="fa-solid fa-trash deleteIcon"></i>
   </div>
-  <div class="ml-2 checkmarkBtn">
+  <div class="ml-2 checkmarkBtn" data-isClicked="false">
   <i class="fa-solid fa-check checkmarkIcon"></i>
   </div>
 </div>
