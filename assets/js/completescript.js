@@ -2,6 +2,7 @@ function btnEvent(subTask) {
   function deleteSubTask(e) {
     e.currentTarget.parentNode.remove();
   }
+
   // CLICK EVENT ON EDIT BUTTON
   function finishEdit() {
     if (!subTaskText.contenteditable) {
@@ -15,6 +16,7 @@ function btnEvent(subTask) {
   let editBtn = subTask.querySelector(`.editBtn`);
   let subTaskText = subTask.querySelector(`.subTaskText`);
   let deleteBtn = subTask.querySelector(`.deleteBtn`);
+  let checkmarkBtn = subTask.querySelector(`.checkmarkBtn`);
 
   deleteBtn.addEventListener(`click`, (e) => {
     deleteSubTask(e);

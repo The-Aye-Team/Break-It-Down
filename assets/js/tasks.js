@@ -126,8 +126,8 @@ function createSubtask(taskName) {
   <div class="deleteBtn">
     <img class="deleteIcon" src="assets/img/garbageIcon.png" style="width: 15px;">
   </div>
-  <div>
-    <span class="text-secondary" id="time-completed">1:30 PM</span>
+  <div class="ml-2 checkmarkBtn">
+  <i class="fa-solid fa-check" style="color: #0f0f0f;"></i>
   </div>
 </div>
   `;
