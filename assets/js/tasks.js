@@ -54,6 +54,7 @@ const addTask = () => {
 
   
   const focus = document.querySelectorAll(`#input${randId}`);
+ 
 
   [...focus].forEach((item) => {
     item.focus();
