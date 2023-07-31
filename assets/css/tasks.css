@@ -51,7 +51,10 @@ color: rgb(94, 158, 122);
   height: 60vh;
   overflow-y: scroll;
 }
-
+.focus[type="text"] {
+  font-size: 20px;
+  font-weight: 700;
+}
 .tasks-container {
   position: relative;
   top: 200px;
@@ -66,9 +69,6 @@ input:focus, .subTaskText:focus {
 .fadeInTaskView {
   top: 200px;
   opacity: 1;
-}
-.calendarIcon {
-  width: 13px;
 }
 .editIcon:hover {
   cursor: pointer;
@@ -164,7 +164,8 @@ input {
     }
    .subTaskText {
     max-width: 450px;
-}
+  }
+
   }
   @media (min-width: 872px) {
     #checkmarkWrapper {

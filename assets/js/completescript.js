@@ -2,6 +2,8 @@ function btnEvent(subTask) {
   function deleteSubTask(e) {
     e.currentTarget.parentNode.remove();
   }
+  
+  
 
   // CLICK EVENT ON EDIT BUTTON
   function finishEdit() {
@@ -79,11 +81,11 @@ const callback = () => {
   let deleteTaskBtns = document.querySelectorAll('.deleteBigTaskBtn');
   for (let button of deleteTaskBtns) {
   button.addEventListener("click", (e) => {
-  bigTaskDel(e);
   function bigTaskDel(e) {
     e.currentTarget.closest(`.task-wrapper`).remove();
-}
-})}}
+  }
+  bigTaskDel(e);
+})}};
 let observer = new MutationObserver(callback);
 observer.observe(upperMost, {
   childList:true
