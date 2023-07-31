@@ -42,15 +42,15 @@ function btnEvent(subTask) {
 // }
 
 let upperMost = document.querySelector('.upperMost')
-const callback = (mutations) => {
-  console.log(mutations);
-  let deleteTaskBtn = document.querySelector('.deleteBigTaskBtn');
-  deleteTaskBtn.addEventListener("click", (e) => {
+const callback = () => {
+  let deleteTaskBtns = document.querySelectorAll('.deleteBigTaskBtn');
+  for (let button of deleteTaskBtns) {
+  button.addEventListener("click", (e) => {
   bigTaskDel(e);
   function bigTaskDel(e) {
     e.currentTarget.closest(`.task-wrapper`).remove();
 }
-})}
+})}}
 let observer = new MutationObserver(callback);
 observer.observe(upperMost, {
   childList:true
