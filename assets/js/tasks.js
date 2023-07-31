@@ -24,17 +24,25 @@ const addTask = () => {
           id = "dropdownMenuButton"
         >
         <input class="focus" type="text" maxlength="75" id="input${randId}">
-        <div class="bigDelBtnWrap ml-auto mr-3">
+        <div class="calendarWrap ml-auto mr-3">
+        <add-to-calendar-button
+        class="calendarBtn"
+        name="empty"
+        options="'Apple','Google'"
+        location="World Wide Web"
+        startDate="2023-07-27"
+        endDate="2023-07-27"
+        startTime="10:15"
+        endTime="23:30"
+        timeZone="America/Los_Angeles"
+      ></add-to-calendar-button>
+        </div>
+        <div class="bigDelBtnWrap mr-3">
         <i class="fa-solid fa-trash deleteBigTaskBtn"></i>
         </div>          
           <i class="fa-solid fa-chevron-down"></i>
         </a>
       <div class="collapse position-relative bigTask" id="collapseExample${randId}">
-            <div class="headerButtons d-flex flex-row justify-content-between ">
-              <div>
-                <span class="pl-2">Calendar <i class="calendarIcon fa-regular fa-calendar" style="color: #FFFCFC;"></i>
-              </div>
-            </div>
             <div class="card card-body border border-3 border-primary subtask-container">
               
             </div>
@@ -43,6 +51,8 @@ const addTask = () => {
 
   taskContainer.insertAdjacentHTML("beforeend", tasks);
 
+
+  
   const focus = document.querySelectorAll(`#input${randId}`);
  
 
@@ -53,12 +63,18 @@ const addTask = () => {
         const taskInput = item.value;
 
         item.readOnly = true;
+        calendarName(taskInput, item);
         getAiData(taskInput, item.closest(".task-wrapper"));
       }
     });
     console.log(item);
   });
 };
+
+function calendarName(taskInput, item) {
+  item.parentNode.querySelector(`.calendarBtn`).setAttribute(`name`, taskInput); 
+}
+
 
 function customInputWidth() {
   inputField = document.querySelectorAll("input");
@@ -71,6 +87,7 @@ function customInputWidth() {
     });
   });
 }
+
 
 function getAiData(task, item) {
   // Fetch data from OpenAI
@@ -115,7 +132,7 @@ function getAiData(task, item) {
 function createSubtask(item, taskName) {
   const subtaskContainer = item.querySelector(".subtask-container");
   const newSubtask = `
-  <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3 mt-2">
+  <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
   <div class="d-flex align-items-center">
     <i class="fa-solid fa-circle"></i>
     <div class="subTaskText" type="text" contenteditable>${taskName}</div>

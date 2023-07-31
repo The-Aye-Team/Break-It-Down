@@ -50,7 +50,10 @@ body::after {
   height: 60vh;
   overflow-y: scroll;
 }
-
+.focus[type="text"] {
+  font-size: 20px;
+  font-weight: 700;
+}
 .tasks-container {
   position: relative;
   top: 200px;
@@ -66,9 +69,6 @@ input:focus,
 .fadeInTaskView {
   top: 200px;
   opacity: 1;
-}
-.calendarIcon {
-  width: 13px;
 }
 .editIcon:hover {
   cursor: pointer;
