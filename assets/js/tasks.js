@@ -40,7 +40,7 @@ const addTask = () => {
         <div class="bigDelBtnWrap mr-3">
         <i class="fa-solid fa-trash deleteBigTaskBtn"></i>
         </div>          
-          <i class="fa-solid fa-chevron-down"></i>
+          <i class="fa-solid fa-chevron-down dropDownBtn"></i>
         </a>
       <div class="collapse position-relative bigTask" id="collapseExample${randId}">
             <div class="card card-body border border-3 border-primary subtask-container">

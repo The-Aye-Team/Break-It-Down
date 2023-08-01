@@ -3,7 +3,7 @@ function btnEvent(subTask) {
     e.currentTarget.parentNode.remove();
   }
   
-  
+
 
   // CLICK EVENT ON EDIT BUTTON
   function finishEdit() {
@@ -21,9 +21,28 @@ function btnEvent(subTask) {
   let subTaskText = subTask.querySelector(`.subTaskText`);
   let deleteBtn = subTask.querySelector(`.deleteBtn`);
   let checkmarkBtn = subTask.querySelector(`.checkmarkBtn`);
+  let genTask = subTask.parentNode.parentNode.parentNode.querySelector(`.genTask`);
+  let dropDownBtn = subTask.parentNode.parentNode.parentNode.querySelector(`.dropDownBtn`);
+
+
+  let arrowCheckClick = false
+  genTask.addEventListener(`click`, () => {
+    if(!arrowCheckClick) {
+    dropDownBtn.setAttribute(`class`, `fa-solid fa-angle-up dropDownBtn`);
+    arrowCheckClick = true
+    return;
+    };
+    dropDownBtn.setAttribute(`class`, `fa-solid fa-chevron-down dropDownBtn`);
+    arrowCheckClick = false;
+  });
+
 
   let checkClick = false
   
+  // genTask.addEventListener(`click`, () => {
+
+  // });
+
   checkmarkBtn.addEventListener(`click`, () => {
     if (!checkClick) {
       checkmarkBtn.querySelector(`.checkmarkIcon`).setAttribute(`class`, `fa-regular fa-x checkmarkIcon`);
