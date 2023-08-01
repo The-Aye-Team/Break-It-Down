@@ -69,11 +69,6 @@ function btnEvent(subTask) {
     } 
   });
 
-  let deleteTaskBtn = subTask.parentNode.parentNode.parentNode.querySelector(`.bigDelBtnWrap`);
-  deleteTaskBtn.addEventListener("click", (e) => {
-    bigTaskDel(e);
-  });
-
 }
 
 let upperMost = document.querySelector('.upperMost')
@@ -85,8 +80,10 @@ const callback = () => {
     e.currentTarget.closest(`.task-wrapper`).remove();
   }
   bigTaskDel(e);
+  observer.disconnect();
 })}};
 let observer = new MutationObserver(callback);
 observer.observe(upperMost, {
   childList:true
 });
+
