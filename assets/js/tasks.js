@@ -7,11 +7,6 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 const addTask = () => {
-  let singleTask = {
-    name: name,
-    subTasks: [],
-  };
-
   const taskContainer = document.querySelector("#tasks-container .tasks-list");
 
   const randId = Math.floor(Math.random() * 10000);
@@ -75,6 +70,32 @@ const addTask = () => {
           </div>
     `;
 
+  function createSubtask(item, taskName) {
+    const subtaskContainer = item.querySelector(".subtask-container");
+    console.log(subtaskContainer);
+    const newSubtask = `
+      <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+      <div class="d-flex align-items-center">
+        <i class="fa-solid fa-circle"></i>
+        <div class="subTaskText" type="text" contenteditable>${taskName}</div>
+      </div>
+      <div class="editBtn">
+         <i class="fa-solid fa-pen editIcon"></i>
+      </div>
+      <div class="deleteBtn">
+      <i class="fa-solid fa-trash deleteIcon"></i>
+      </div>
+      <div class="ml-2 checkmarkBtn" data-isClicked="false">
+      <i class="fa-solid fa-check checkmarkIcon"></i>
+      </div>
+    </div>
+      `;
+
+    subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
+    btnEvent(subtaskContainer.lastElementChild);
+    item.querySelector(`.genTask`).click();
+  }
+
   taskContainer.insertAdjacentHTML("beforeend", tasks);
 
   const focus = document.querySelectorAll(`#input${randId}`);
@@ -84,12 +105,14 @@ const addTask = () => {
     item.addEventListener("keypress", async (e) => {
       if (e.key === `Enter`) {
         const taskInput = item.value;
-
-        singleTask.name = taskInput;
         item.readOnly = true;
-        singleTask.subTasks = await getAiData(singleTask.name);
+        allSubTasks = await getAiData(taskInput);
+        subTaskData(taskInput, allSubTasks);
         calendarName(taskInput, item);
-        saveTask(singleTask);
+        allSubTasks.forEach((singleTask) => {
+          createSubtask(item.closest(".task-wrapper"), singleTask);
+        });
+        saveTaskToLocalStorage(subTaskData(taskInput, allSubTasks));
         // getAiData(taskInput, item.closest(".task-wrapper"));
       }
     });
@@ -153,28 +176,4 @@ async function getAiData(task) {
   // });
 
   // This completes the script
-}
-
-function createSubtask(item, taskName) {
-  const subtaskContainer = item.querySelector(".subtask-container");
-  const newSubtask = `
-  <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
-  <div class="d-flex align-items-center">
-    <i class="fa-solid fa-circle"></i>
-    <div class="subTaskText" type="text" contenteditable>${taskName}</div>
-  </div>
-  <div class="editBtn">
-     <i class="fa-solid fa-pen editIcon"></i>
-  </div>
-  <div class="deleteBtn">
-  <i class="fa-solid fa-trash deleteIcon"></i>
-  </div>
-  <div class="ml-2 checkmarkBtn" data-isClicked="false">
-  <i class="fa-solid fa-check checkmarkIcon"></i>
-  </div>
-</div>
-  `;
-  subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
-  btnEvent(subtaskContainer.lastElementChild);
-  item.querySelector(`.genTask`).click();
 }
