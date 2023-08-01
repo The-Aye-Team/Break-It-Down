@@ -23,9 +23,14 @@ body::after {
   background: rgba(60, 73, 63, 0.8);
   z-index: -1;
 }
-.checkmarkBtn:hover, .fa-check:hover {
-cursor: pointer;
-color: green;
+.checkmarkIcon:hover {
+  cursor: pointer;
+  text-shadow: rgb(94, 158, 122) 1px 0 10px;
+  border-radius: 20px;
+  color: rgb(94, 158, 122);
+}
+.checkmarkBtn {
+  padding: 5px;
 }
 
 .logo-wrapper img {
@@ -40,19 +45,25 @@ color: green;
   opacity: 0;
   transition: 0.2s all ease-in-out;
 }
-
+.focus:hover {
+  cursor: pointer;
+}
 .tasks-container > .tasks-list {
   height: 60vh;
   overflow-y: scroll;
 }
-
+.focus[type="text"] {
+  font-size: 20px;
+  font-weight: 700;
+}
 .tasks-container {
   position: relative;
   top: 200px;
   opacity: 0;
   transition: 0.2s all ease-in-out;
 }
-input:focus, .subTaskText:focus {
+input:focus,
+.subTaskText:focus {
   outline: none;
 }
 /* Fade Logic */
@@ -61,15 +72,23 @@ input:focus, .subTaskText:focus {
   top: 200px;
   opacity: 1;
 }
-.calendarIcon {
-  width: 13px;
-}
-.deleteBigTaskBtn:hover {
+.editIcon:hover {
   cursor: pointer;
+  color: rgb(237, 112, 40);
+  border-radius: 20px;
+  text-shadow: rgb(237, 112, 40) 1px 0 10px;
+}
+.bigDelBtnWrap:hover,
+.deleteBtn:hover,
+.fa-x:hover {
+  cursor: pointer;
+  color: rgb(243, 76, 76);
+  border-radius: 20px;
+  text-shadow: rgb(243, 76, 76) 1px 0 10px;
 }
 .headerButtons {
-  color: #FFFCFC;
-  background-color: #557D6A;
+  color: #fffcfc;
+  background-color: #557d6a;
   position: absolute;
   z-index: 1;
   left: 0;
@@ -82,9 +101,7 @@ input:focus, .subTaskText:focus {
 .fadeInTaskView {
   top: 0;
 }
-.deleteBtn:hover {
-  cursor: pointer;
-}
+
 .fadeAway {
   top: 0px;
   opacity: 0;
@@ -108,6 +125,14 @@ input:focus, .subTaskText:focus {
   bottom: 5vh;
   transform: translate(-50%, 0);
 }
+
+/* .upperContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+} */
+
 input {
   border: none;
   padding: 5px;
@@ -141,25 +166,30 @@ input {
     font-size: small;
   }
 }
-  @media (min-width: 765px) {
-    #btnContainer {
-      width: 40vw;
-    }
-    #checkmarkWrapper {
-      padding-right: 37px;
-    }
-   .subTaskText {
+@media (min-width: 765px) {
+  #btnContainer {
+    width: 40vw;
+  }
+  #checkmarkWrapper {
+    padding-right: 37px;
+  }
+  .subTaskText {
     max-width: 450px;
+  }
 }
+@media (min-width: 872px) {
+  #checkmarkWrapper {
+    padding-right: 10px;
   }
-  @media (min-width: 872px) {
-    #checkmarkWrapper {
-      padding-right: 10px;
-    }
+}
+@media (min-width: 1281px) {
+  #btnContainer {
+    width: 25vw;
   }
-  @media (min-width: 1281px) {
-    #btnContainer {
-      width: 25vw;
-    }
-  }
+}
 
+@media (max-width: 991px) {
+  .deskTopView {
+    display: none;
+  }
+}
