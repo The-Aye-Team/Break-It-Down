@@ -11,7 +11,9 @@ function btnEvent(subTask) {
       subTaskText.setAttribute(`contenteditable`, true);
       editBtn.querySelector(`.editIcon`).setAttribute(`class`, `fa-solid fa-arrow-right-to-bracket editIcon`)
       subTaskText.focus();
+
       return;
+
     }
         subTaskText.setAttribute(`contenteditable`, false);
         editBtn.querySelector(`.editIcon`).setAttribute(`class`, `fa-solid fa-pen editIcon`);
@@ -82,13 +84,14 @@ function btnEvent(subTask) {
   // LISTENING FOR ENTER KEY
   subTaskText.addEventListener("keypress", (e) => {
     if (e.key === `Enter`) {
+
         e.preventDefault();
         subTaskText.removeAttribute(`contenteditable`);
         editBtn.querySelector(`.editIcon`).setAttribute(`class`, `fa-solid fa-pen editIcon`);
     } 
   });
-
 }
+
 
 let upperMost = document.querySelector('.upperMost')
 const callback = () => {
@@ -106,3 +109,4 @@ observer.observe(upperMost, {
   childList:true
 });
 
+getTask();
