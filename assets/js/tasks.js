@@ -33,7 +33,7 @@ const addTask = () => {
         <div class="calendarWrap ml-auto mr-3">
 
         <add-to-calendar-button 
-          class="d-lg-none d-xl-none"
+          class="d-lg-none d-xl-none calendarBtn"
           name="Sample Event"
           description="Play with me!"
           startDate="2024-01-28"
@@ -74,14 +74,9 @@ const addTask = () => {
             </div>
           </div>
     `;
-  
-
- 
 
   taskContainer.insertAdjacentHTML("beforeend", tasks);
 
-
-  
   const focus = document.querySelectorAll(`#input${randId}`);
 
   [...focus].forEach((item) => {
@@ -96,17 +91,11 @@ const addTask = () => {
         calendarName(taskInput, item);
         saveTask(singleTask);
         // getAiData(taskInput, item.closest(".task-wrapper"));
-
       }
     });
     // console.log("whole item", item);
   });
 };
-
-function calendarName(taskInput, item) {
-  item.parentNode.querySelector(`.calendarBtn`).setAttribute(`name`, taskInput); 
-}
-
 
 function customInputWidth() {
   inputField = document.querySelectorAll("input");
@@ -119,12 +108,12 @@ function customInputWidth() {
     });
   });
 }
-
-
+function calendarName(taskInput, item) {
+  console.log(`hello`);
+  item.parentNode.querySelector(`.calendarBtn`).setAttribute(`name`, taskInput);
+}
 async function getAiData(task) {
-
-
-// function getAiData(task, item) {
+  // function getAiData(task, item) {
 
   // Fetch data from OpenAI
   var myHeaders = new Headers();
@@ -146,7 +135,6 @@ async function getAiData(task) {
     redirect: "follow",
   };
 
-
   let response = await fetch(
     "https://api.openai.com/v1/completions",
     requestOptions
@@ -157,7 +145,7 @@ async function getAiData(task) {
   const replacedTextResult = textResult.replace(/[\n.]*/g, "");
   console.log(replacedTextResult);
   const newArray = replacedTextResult.split(", ");
-
+  console.log(populateTask);
   return newArray;
   // newArray.forEach((item) => {
   //   createSubtask(item, singleItem);
