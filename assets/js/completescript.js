@@ -90,13 +90,6 @@ function btnEvent(subTask) {
         editBtn.querySelector(`.editIcon`).setAttribute(`class`, `fa-solid fa-pen editIcon`);
     } 
   });
-
-  let deleteTaskBtn = subTask.parentNode.parentNode.parentNode.querySelector(`.bigDelBtnWrap`);
-
-  deleteTaskBtn.addEventListener("click", (e) => {
-    bigTaskDel(e);
-  });
-
 }
 
 
@@ -109,9 +102,11 @@ const callback = () => {
     e.currentTarget.closest(`.task-wrapper`).remove();
   }
   bigTaskDel(e);
+  observer.disconnect();
 })}};
 let observer = new MutationObserver(callback);
 observer.observe(upperMost, {
   childList:true
 });
+
 getTask();
