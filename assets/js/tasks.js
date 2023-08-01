@@ -7,9 +7,8 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 const addTask = () => {
-  let genTasks = [];
   let singleTask = {
-    name: "",
+    name: name,
     subTasks: [],
   };
 
@@ -61,8 +60,7 @@ const addTask = () => {
         // console.log("whole task", taskContainer.lastElementChild.outerHTML);
         // console.log(singleTask.subTasks);
         console.log(singleTask);
-        saveTask(JSON.stringify(singleTask));
-        console.log(JSON.parse(getTask()));
+        saveTask(singleTask);
       }
     });
     // console.log("whole item", item);

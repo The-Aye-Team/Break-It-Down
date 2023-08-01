@@ -9,7 +9,7 @@ function btnEvent(subTask) {
       subTaskText.setAttribute(`contenteditable`, true);
       subTaskText.focus();
     } else {
-        subTaskText.removeAttribute(`contenteditable`);
+      subTaskText.removeAttribute(`contenteditable`);
     }
   }
 
@@ -29,16 +29,24 @@ function btnEvent(subTask) {
   // LISTENING FOR ENTER KEY
   subTaskText.addEventListener("keypress", (e) => {
     if (e.key === `Enter`) {
-        e.preventDefault();
-        subTaskText.removeAttribute(`contenteditable`);
+      e.preventDefault();
+      subTaskText.removeAttribute(`contenteditable`);
     }
   });
-  let deleteTaskBtn = subTask.parentNode.parentNode.querySelector(`.deleteBigTaskBtn`);
+  let deleteTaskBtn =
+    subTask.parentNode.parentNode.querySelector(`.deleteBigTaskBtn`);
   deleteTaskBtn.addEventListener("click", (e) => {
     bigTaskDel(e);
   });
 }
 
 function bigTaskDel(e) {
-    e.currentTarget.closest(`.task-wrapper`).remove();
+  e.currentTarget.closest(`.task-wrapper`).remove();
 }
+getTask();
+// function showCompletedTasks() {
+//   const completedTaskList = document.querySelector(".completed-task-list");
+//   const randId = Math.floor(Math.random() * 10000);
+//   getTask()
+
+// }
