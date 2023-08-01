@@ -23,20 +23,39 @@ const addTask = () => {
           style="text-align: left; font-weight: bold;"
           id = "dropdownMenuButton"
         >
-        <input class="focus" type="text" maxlength="75" id="input${randId}">
+        <input class="focus d-flex" type="text" maxlength="75" id="input${randId}">
         <div class="calendarWrap ml-auto mr-3">
+
+        <add-to-calendar-button 
+          class="d-lg-none d-xl-none"
+          name="Sample Event"
+          description="Play with me!"
+          startDate="2024-01-28"
+          startTime="10:15"
+          endTime="17:45"
+          timeZone="America/New_York"
+          location="World Wide Web"
+          options="'Apple','Google','Outlook.com','Yahoo'"
+          listStyle="modal"
+          hideTextLabelButton
+          label="Add"
+        ></add-to-calendar-button>
+        
+       
         <add-to-calendar-button
-        class="calendarBtn"
+        class="deskTopView calendarBtn"
         name="empty"
-        options="'Apple','Google'"
+        options="'Apple','Google', 'Outlook.com', 'Yahoo'"
         location="World Wide Web"
         startDate="2023-07-27"
         endDate="2023-07-27"
         startTime="10:15"
         endTime="23:30"
-        timeZone="America/Los_Angeles"
+        timeZone="currentBrowser"
       ></add-to-calendar-button>
+
         </div>
+
         <div class="bigDelBtnWrap mr-3">
         <i class="fa-solid fa-trash deleteBigTaskBtn"></i>
         </div>          
@@ -48,6 +67,9 @@ const addTask = () => {
             </div>
           </div>
     `;
+  
+
+ 
 
   taskContainer.insertAdjacentHTML("beforeend", tasks);
 
