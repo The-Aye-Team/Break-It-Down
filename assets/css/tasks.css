@@ -45,7 +45,9 @@ body::after {
   opacity: 0;
   transition: 0.2s all ease-in-out;
 }
-
+.focus:hover {
+  cursor: pointer;
+}
 .tasks-container > .tasks-list {
   height: 60vh;
   overflow-y: scroll;
