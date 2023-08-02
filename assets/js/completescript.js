@@ -39,11 +39,9 @@ function btnEvent(subTask) {
   });
 
 
-  let checkClick = false
   
-  // genTask.addEventListener(`click`, () => {
 
-  // });
+  let checkClick = false
 
   checkmarkBtn.addEventListener(`click`, () => {
     if (!checkClick) {
