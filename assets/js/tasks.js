@@ -7,118 +7,34 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 const addTask = () => {
-  const taskContainer = document.querySelector("#tasks-container .tasks-list");
+  createTask();
+};
 
-  const randId = Math.floor(Math.random() * 10000);
-  let tasks = `
-        <div class="task-wrapper mb-3 w-100">
-        <a 
-          class="genTask btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold bg-white"
-          data-bs-toggle="collapse"
-          href="#collapseExample${randId}"
-          role="button"
-          aria-expanded="false"
-          aria-controls="collapseExample"
-          style="text-align: left; font-weight: bold;"
-          id = "dropdownMenuButton"
-        >
-
-        <input class="focus d-flex" type="text" maxlength="75" id="input${randId}">
-
-        <div class="calendarWrap ml-auto mr-3">
-
-        <add-to-calendar-button 
-          class="d-lg-none d-xl-none calendarBtn"
-          name="Sample Event"
-          description="Play with me!"
-          startDate="2024-01-28"
-          startTime="10:15"
-          endTime="17:45"
-          timeZone="America/New_York"
-          location="World Wide Web"
-          options="'Apple','Google','Outlook.com','Yahoo'"
-          listStyle="modal"
-          hideTextLabelButton
-          label="Add"
-        ></add-to-calendar-button>
-        
-       
-        <add-to-calendar-button
-        class="deskTopView calendarBtn"
-        name="empty"
-        options="'Apple','Google', 'Outlook.com', 'Yahoo'"
-        location="World Wide Web"
-        startDate="2023-07-27"
-        endDate="2023-07-27"
-        startTime="10:15"
-        endTime="23:30"
-        timeZone="currentBrowser"
-      ></add-to-calendar-button>
-
-        </div>
-
-        <div class="bigDelBtnWrap mr-3">
-        <i class="fa-solid fa-trash deleteBigTaskBtn"></i>
-        </div>          
-          <i class="fa-solid fa-chevron-down dropDownBtn"></i>
-
-        </a>
-      <div class="collapse position-relative bigTask" id="collapseExample${randId}">
-            <div class="card card-body border border-3 border-primary subtask-container">
-              
-            </div>
-          </div>
+function createSubtask(item, taskName) {
+  const subtaskContainer = item.querySelector(".subtask-container");
+  console.log(subtaskContainer);
+  const newSubtask = `
+    <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+    <div class="d-flex align-items-center">
+      <i class="fa-solid fa-circle"></i>
+      <div class="subTaskText" type="text" contenteditable>${taskName}</div>
+    </div>
+    <div class="editBtn">
+       <i class="fa-solid fa-pen editIcon"></i>
+    </div>
+    <div class="deleteBtn">
+    <i class="fa-solid fa-trash deleteIcon"></i>
+    </div>
+    <div class="ml-2 checkmarkBtn" data-isClicked="false">
+    <i class="fa-solid fa-check checkmarkIcon"></i>
+    </div>
+  </div>
     `;
 
-  function createSubtask(item, taskName) {
-    const subtaskContainer = item.querySelector(".subtask-container");
-    console.log(subtaskContainer);
-    const newSubtask = `
-      <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
-      <div class="d-flex align-items-center">
-        <i class="fa-solid fa-circle"></i>
-        <div class="subTaskText" type="text" contenteditable>${taskName}</div>
-      </div>
-      <div class="editBtn">
-         <i class="fa-solid fa-pen editIcon"></i>
-      </div>
-      <div class="deleteBtn">
-      <i class="fa-solid fa-trash deleteIcon"></i>
-      </div>
-      <div class="ml-2 checkmarkBtn" data-isClicked="false">
-      <i class="fa-solid fa-check checkmarkIcon"></i>
-      </div>
-    </div>
-      `;
-
-    subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
-    btnEvent(subtaskContainer.lastElementChild);
-    item.querySelector(`.genTask`).click();
-  }
-
-  taskContainer.insertAdjacentHTML("beforeend", tasks);
-
-  const focus = document.querySelectorAll(`#input${randId}`);
-
-  [...focus].forEach((item) => {
-    item.focus();
-    item.addEventListener("keypress", async (e) => {
-      if (e.key === `Enter`) {
-        const taskInput = item.value;
-        item.readOnly = true;
-        allSubTasks = await getAiData(taskInput);
-        subTaskData(taskInput, allSubTasks);
-        calendarName(taskInput, item);
-        allSubTasks.forEach((singleTask) => {
-          createSubtask(item.closest(".task-wrapper"), singleTask);
-        });
-        saveTaskToLocalStorage(subTaskData(taskInput, allSubTasks));
-        // getAiData(taskInput, item.closest(".task-wrapper"));
-      }
-    });
-    // console.log("whole item", item);
-  });
-};
+  subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
+  btnEvent(subtaskContainer.lastElementChild);
+  item.querySelector(`.genTask`).click();
+}
 
 function customInputWidth() {
   inputField = document.querySelectorAll("input");
@@ -131,10 +47,7 @@ function customInputWidth() {
     });
   });
 }
-function calendarName(taskInput, item) {
-  console.log(`hello`);
-  item.parentNode.querySelector(`.calendarBtn`).setAttribute(`name`, taskInput);
-}
+
 async function getAiData(task) {
   // function getAiData(task, item) {
 

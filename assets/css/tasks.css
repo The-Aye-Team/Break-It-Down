@@ -105,7 +105,7 @@ input:focus,
 .fadeAway {
   top: 0px;
   opacity: 0;
-  display: none;
+  height: 1px !important;
 }
 .deleteIcon {
   width: 15px;
@@ -193,5 +193,3 @@ input {
     display: none;
   }
 }
-
-
