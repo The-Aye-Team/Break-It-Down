@@ -33,6 +33,7 @@ function createTask() {
         item.readOnly = true;
         allSubTasks = await getAiData(taskInput);
         subTaskData(taskInput, allSubTasks);
+        console.log(subTaskData(taskInput, allSubTasks));
         calendarName(taskInput, item, randId);
         allSubTasks.forEach((singleTask) => {
           createSubtask(item.closest(".task-wrapper"), singleTask);
@@ -167,4 +168,44 @@ function btnEvent(subTask) {
         .setAttribute(`class`, `fa-solid fa-pen editIcon`);
     }
   });
+}
+
+function getUUID() {
+  let item = localStorage.getItem("allTasks");
+  item = JSON.parse(item);
+
+  let subTaskId;
+
+  for (let i = 0; i < item.length; i++) {
+    let taskID = item[i];
+    // console.log(taskID);
+
+    for (let j = 0; j < taskID.subTasks.length; j++) {
+      subTaskId = taskID.subTasks[j].id;
+      console.log(subTaskId);
+    }
+  }
+}
+
+getUUID();
+
+function deleteTask(itemID) {
+  let item = localStorage.getItem("allTasks");
+  item = JSON.parse(item);
+
+  for (let i = 0; i < item.length; i++) {
+    let taskID = item[i].id;
+    // console.log(taskID);
+    if (taskID === itemID) {
+      if (item) {
+        taskList = JSON.parse(localStorage.getItem("allTasks"));
+        taskList.pop(taskID);
+        localStorage.setItem("allTasks", JSON.stringify(taskList));
+      } else {
+        localStorage.setItem("allTasks", JSON.stringify(taskList));
+      }
+
+      itemID.remove();
+    }
+  }
 }

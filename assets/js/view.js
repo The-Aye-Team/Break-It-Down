@@ -140,10 +140,8 @@ function wholeTaskView(randomId, task, subTasks) {
         </a>
       <div class="collapse position-relative bigTask" id="collapseExample${randomId}">
             <div class="card card-body border border-3 border-primary subtask-container">
-              ${subTasks
-                .map((singleSubTask) => {
-                  return subTaskView(singleSubTask);
-                })
+              ${Object.keys(subTasks)
+                .map((key) => subTaskView(subTasks[key].subTask))
                 .join("")}
             </div>
           </div>
@@ -153,7 +151,7 @@ function wholeTaskView(randomId, task, subTasks) {
   return tasks;
 }
 
-function subTaskView(subTask) {
+function subTaskView(subTask, id) {
   let subtask = `
       <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
     <div class="d-flex align-items-center">
@@ -166,7 +164,7 @@ function subTaskView(subTask) {
     <div class="deleteBtn">
     <i class="fa-solid fa-trash deleteIcon"></i>
     </div>
-    <div class="ml-2 checkmarkBtn" data-isClicked="false">
+    <div class="ml-2 checkmarkBtn${id}" data-isClicked="false">
     <i class="fa-solid fa-check checkmarkIcon"></i>
     </div>
   </div>
@@ -177,7 +175,6 @@ function subTaskView(subTask) {
 
 function populateTask(task, subTasks) {
   const taskContainer = document.querySelector("#tasks-container .tasks-list");
-
   const randId = Math.floor(Math.random() * 10000);
   taskContainer.insertAdjacentHTML(
     "beforeend",
@@ -208,10 +205,9 @@ function getTask() {
   for (let i = 0; i < parsedItems.length; i++) {
     taskName = parsedItems[i].name;
     subTasks = parsedItems[i].subTasks;
-
     populateTask(taskName, subTasks);
     // console.log(parsedItems[i]);
-    console.log(taskName, subTasks);
+    console.log(subTasks);
   }
 }
 getTask();
