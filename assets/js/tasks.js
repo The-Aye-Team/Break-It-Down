@@ -59,7 +59,8 @@ async function getAiData(task) {
 
   var raw = JSON.stringify({
     model: "text-davinci-003",
-    prompt: `Break down '${task}' into smaller tasks seperated by commas and do not number the list. Please capitalize the first letter of each word.`,
+    prompt: `Break down '${task}' into smaller tasks seperated by commas and do not number the list. Please capitalize the first letter of each word
+    and make sure every step has two words or more.`,
     max_tokens: 250,
     temperature: 0.2,
   });
