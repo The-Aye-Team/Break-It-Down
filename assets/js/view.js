@@ -85,12 +85,20 @@ function taskView(randomId) {
 }
 
 function wholeTaskView(randomId, task, subTasks, id) {
-  //   let date = new Date().toLocaleTimeString();
-  //   let time = date.getHours() + ":" + date.getMinutes();
+  let allCompleted = false;
+  let completedArray = Object.keys(subTasks).map(
+    (key) => subTasks[key].isCompleted
+  );
+  allCompleted = completedArray.every((isCompleted) => isCompleted === true);
+
+  console.log(completedArray);
+
   let tasks = `
         <div class="task-wrapper mb-3 w-100">
         <a 
-          class="genTask btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold bg-white"
+          class="genTask btn btn-primary w-100 mb-2 text-start d-flex justify-content-between align-items-center fw-bold bg-${
+            allCompleted ? "primary" : "white"
+          }"
           data-bs-toggle="collapse"
           href="#collapseExample${randomId}"
           role="button"
@@ -141,9 +149,7 @@ function wholeTaskView(randomId, task, subTasks, id) {
       <div class="collapse position-relative bigTask" id="collapseExample${randomId}">
             <div class="card card-body border border-3 border-primary subtask-container">
               ${Object.keys(subTasks)
-                .map((key) =>
-                  subTaskView(subTasks[key].subTask, subTasks[key].id)
-                )
+                .map((key) => subTaskView(subTasks[key]))
                 .join("")}
             </div>
           </div>
@@ -153,9 +159,13 @@ function wholeTaskView(randomId, task, subTasks, id) {
   return tasks;
 }
 
-function subTaskView(subTask, id) {
+function subTaskView({ subTask, id, isCompleted }) {
+  console.log(subTask, id, isCompleted);
+
   let subtask = `
-      <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+      <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-${
+        isCompleted ? "primary" : "white"
+      } px-3 py-1 rounded-xl border border-3 border-primary mb-3">
     <div class="d-flex align-items-center">
       <i class="fa-solid fa-circle"></i>
       <div class="subTaskText" type="text" contenteditable>${subTask}</div>
@@ -166,8 +176,12 @@ function subTaskView(subTask, id) {
     <div class="deleteBtn">
     <i class="fa-solid fa-trash deleteIcon"></i>
     </div>
-    <div class="ml-2 checkmarkBtn" data-isClicked="false">
-    <i class="fa-solid fa-check checkmarkIcon" id="${id}"></i>
+    <div class="ml-2 checkmarkBtn" data-isClicked="${
+      isCompleted ? "true" : "false"
+    }">
+    <i class="fa-solid fa-${
+      isCompleted ? "x" : "check"
+    } checkmarkIcon" id="${id}"></i>
     </div>
   </div>
     `;
@@ -183,7 +197,7 @@ function populateTask(task, subTasks) {
     wholeTaskView(randId, task, subTasks)
   );
   customInputWidth();
-  console.log(document.querySelector(".focus"));
+
   const mainTask = document.querySelector(`#input${randId}`);
   mainTask.value = task;
   const mainTaskName = mainTask.value;
@@ -194,14 +208,12 @@ function populateTask(task, subTasks) {
 function getTask() {
   // Gets all items from localStorage
   const items = localStorage.getItem("allTasks");
+  console.log(items);
   let taskName;
   let subTasks;
-  console.log(items);
-  console.log(typeof items);
 
   //   Creates an array of all the tasks in localStorage
   const parsedItems = JSON.parse(items);
-
   console.log(parsedItems);
 
   //   Loops through the array to get each individual task. (output is an object)
@@ -212,8 +224,11 @@ function getTask() {
     taskName = parsedItems[i].name;
     subTasks = parsedItems[i].subTasks;
     populateTask(taskName, subTasks);
+    let subTaskWrapperArray = document.querySelectorAll(".subTaskWrapper");
+    subTaskWrapperArray.forEach((subTaskWrapper) => {
+      btnEvent(subTaskWrapper);
+    });
     // console.log(parsedItems[i]);
-    console.log(subTasks);
   }
 }
 getTask();
