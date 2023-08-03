@@ -100,7 +100,7 @@ function wholeTaskView(randomId, task, subTasks, id) {
           id = "dropdownMenuButton"
         >
 
-        <input class="focus d-flex" type="text" maxlength="75" id="input${randomId}" value="">
+        <input class="focus d-flex" type="text" maxlength="75" id="input${randomId}" value="" readOnly>
 
         <div class="calendarWrap ml-auto mr-3">
 
