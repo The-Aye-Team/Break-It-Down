@@ -117,7 +117,7 @@ body {
     }
 }
 
-@media (min-width:1281px) { /* hi-res laptops and desktops */ 
+@media (min-width:994px) { /* hi-res laptops and desktops */ 
     .desktopLogo {
         display: flex;
     }
@@ -145,7 +145,8 @@ body {
         flex-direction: column;
     }
     .welcomeWrap{
-        min-width: 95%;
+        min-width: 70%;
+
     }
     .welcome {
         font-size: 14px;
