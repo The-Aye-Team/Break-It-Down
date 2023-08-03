@@ -114,6 +114,11 @@
     <script src="./assets/js/controllers.js"></script>
     <script src="./assets/js/completescript.js"></script>
     <script src="./assets/js/view.js"></script>
+    <script>
+      if (localStorage.getItem("userName") === null) {
+        window.location.href = "/index.html";
+      }
+    </script>
     
   </body>
 </html>

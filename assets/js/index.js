@@ -1,6 +1,6 @@
 const container = document.querySelector("#tasks-container");
-if(container !== null) {
-console.log(`item ` + sessionStorage.getItem(`hasVisited`))
+if (container !== null) {
+  console.log(`item ` + sessionStorage.getItem(`hasVisited`));
   if (sessionStorage.getItem(`hasVisited`) === null) {
     window.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
@@ -12,8 +12,8 @@ console.log(`item ` + sessionStorage.getItem(`hasVisited`))
     window.addEventListener("DOMContentLoaded", () => {
       container.classList.add("fadeInTaskView");
     });
-  };
-};
+  }
+}
 // Trigger fading animation on load.
 if (sessionStorage.getItem(`hasVisited`) === null) {
   if (document.querySelector("#message-fade") != null) {
@@ -35,7 +35,6 @@ if (sessionStorage.getItem(`hasVisited`) === null) {
     sessionStorage.setItem(`hasVisited`, `true`);
   }
 }
-
 
 // Saves name of user to local storage
 if (document.querySelector(".nameIn") != null) {
