@@ -50,11 +50,12 @@ body::after {
 }
 .tasks-container > .tasks-list {
   height: 60vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .focus[type="text"] {
   font-size: 20px;
   font-weight: 700;
+  min-width: 115px;
 }
 .tasks-container {
   position: relative;

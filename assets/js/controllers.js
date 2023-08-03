@@ -16,6 +16,7 @@ function saveTaskToLocalStorage(task) {
 // This function will create a brand new task item and assist in generating a new task
 function createTask() {
   const taskContainer = document.querySelector("#tasks-container .tasks-list");
+  console.log(UUID());
   const randId = Math.floor(Math.random() * 10000);
   // This is the main task container. Random ID is generated to created unique id attribute values.
   taskView(randId);
@@ -32,17 +33,47 @@ function createTask() {
         const taskInput = item.value;
         item.readOnly = true;
         allSubTasks = await getAiData(taskInput);
-        subTaskData(taskInput, allSubTasks);
-        console.log(subTaskData(taskInput, allSubTasks));
+        let allData = subTaskData(taskInput, allSubTasks);
+
         calendarName(taskInput, item, randId);
-        allSubTasks.forEach((singleTask) => {
-          createSubtask(item.closest(".task-wrapper"), singleTask);
+        allData.subTasks.forEach((singleTask) => {
+          createSubtask(
+            item.closest(".task-wrapper"),
+            singleTask.subTask,
+            singleTask.id
+          );
         });
-        saveTaskToLocalStorage(subTaskData(taskInput, allSubTasks));
+        saveTaskToLocalStorage(allData);
         // getAiData(taskInput, item.closest(".task-wrapper"));
       }
     });
   });
+}
+
+function createSubtask(item, taskName, id) {
+  const subtaskContainer = item.querySelector(".subtask-container");
+  console.log(subtaskContainer);
+  const newSubtask = `
+      <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
+      <div class="d-flex align-items-center">
+        <i class="fa-solid fa-circle"></i>
+        <div class="subTaskText" type="text" contenteditable>${taskName}</div>
+      </div>
+      <div class="editBtn">
+         <i class="fa-solid fa-pen editIcon"></i>
+      </div>
+      <div class="deleteBtn">
+      <i class="fa-solid fa-trash deleteIcon"></i>
+      </div>
+      <div class="ml-2 checkmarkBtn" data-isClicked="false">
+      <i class="fa-solid fa-check checkmarkIcon" id="${id}"></i>
+      </div>
+    </div>
+      `;
+
+  subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
+  btnEvent(subtaskContainer.lastElementChild);
+  item.querySelector(`.genTask`).click();
 }
 
 function calendarName(taskInput, item, randomId) {
@@ -113,7 +144,8 @@ function btnEvent(subTask) {
 
   // });
 
-  checkmarkBtn.addEventListener(`click`, () => {
+  checkmarkBtn.addEventListener(`click`, (e) => {
+    console.dir(e);
     if (!checkClick) {
       checkmarkBtn
         .querySelector(`.checkmarkIcon`)
@@ -176,13 +208,15 @@ function getUUID() {
 
   let subTaskId;
 
-  for (let i = 0; i < item.length; i++) {
-    let taskID = item[i];
-    // console.log(taskID);
+  if (!item === null) {
+    for (let i = 0; i < item.length; i++) {
+      let taskID = item[i];
+      // console.log(taskID);
 
-    for (let j = 0; j < taskID.subTasks.length; j++) {
-      subTaskId = taskID.subTasks[j].id;
-      console.log(subTaskId);
+      for (let j = 0; j < taskID.subTasks.length; j++) {
+        subTaskId = taskID.subTasks[j].id;
+        console.log(subTaskId);
+      }
     }
   }
 }
