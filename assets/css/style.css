@@ -3,8 +3,12 @@ body {
     position: relative;
     min-height: 100vh;
     background: url('../img/background.jpeg');
-    background-size: 2400px 1400px;     
+    background-size: 2400px 1400px;
+        
 }
+::-webkit-scrollbar {
+        display: none;
+    } 
 body:after {
     content: "";
     position: absolute;
@@ -15,7 +19,13 @@ body:after {
     background: rgba(60, 73, 63, 0.8);
     z-index: -1;
     min-height: 100vh;
-
+    min-width: 100vw;
+    background-repeat: no-repeat;
+}
+.example {
+    font-size: 16px;
+    color: #d9d9d992;
+    text-shadow: #D9D9D9 1px 0 10px;
 }
 .readyTo {
     color: #D9D9D9;
@@ -24,7 +34,7 @@ body:after {
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 .name {
     color: #D9D9D9;
@@ -42,7 +52,8 @@ body:after {
 }
 input[type="text"] {
     font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
+    font-weight: lighter;
+    font-style: italic;
 }
 .beginBtn {
     padding-left: 3.5rem;
@@ -54,6 +65,19 @@ input[type="text"] {
     color: #D9D9D9;
     font-weight: 700;
     font-size: 33px;
+}
+.welcomeWrap {
+    border: 2px solid #D9D9D9;
+    border-radius: 2rem;
+    box-shadow: 0px 5.660377502441406px 28.30188751220703px 0px rgba(0, 0, 0, 0.25);
+}
+.welcome {
+    font-size: 18px;
+    color: #D9D9D9;
+    text-shadow: #D9D9D9 1px 0 10px;
+}
+.guideWrap {
+    gap: 15px;
 }
 @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
     .desktopLogo {
@@ -114,5 +138,16 @@ body {
     input[type="text"]
     {
         font-size: 26px;
+    }
+}
+@media (max-width:994px) {
+    .guideWrap {
+        flex-direction: column;
+    }
+    .welcomeWrap{
+        min-width: 95%;
+    }
+    .welcome {
+        font-size: 14px;
     }
 }
