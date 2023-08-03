@@ -1,7 +1,9 @@
 html {
   font-family: "Open Sans", sans-serif;
 }
-
+::-webkit-scrollbar {
+  display: none;
+} 
 .editBtn {
   margin-right: auto;
   margin-left: 5px;

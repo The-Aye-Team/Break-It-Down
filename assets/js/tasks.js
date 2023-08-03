@@ -10,37 +10,12 @@ const addTask = () => {
   createTask();
 };
 
-function createSubtask(item, taskName) {
-  const subtaskContainer = item.querySelector(".subtask-container");
-  console.log(subtaskContainer);
-  const newSubtask = `
-    <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-white px-3 py-1 rounded-xl border border-3 border-primary mb-3">
-    <div class="d-flex align-items-center">
-      <i class="fa-solid fa-circle"></i>
-      <div class="subTaskText" type="text" contenteditable>${taskName}</div>
-    </div>
-    <div class="editBtn">
-       <i class="fa-solid fa-pen editIcon"></i>
-    </div>
-    <div class="deleteBtn">
-    <i class="fa-solid fa-trash deleteIcon"></i>
-    </div>
-    <div class="ml-2 checkmarkBtn" data-isClicked="false">
-    <i class="fa-solid fa-check checkmarkIcon"></i>
-    </div>
-  </div>
-    `;
-
-  subtaskContainer.insertAdjacentHTML("beforeend", newSubtask);
-  btnEvent(subtaskContainer.lastElementChild);
-  item.querySelector(`.genTask`).click();
-}
-
 function customInputWidth() {
   inputField = document.querySelectorAll("input");
 
   [...inputField].forEach((input) => {
-    input.addEventListener("input", () => {
+    input.addEventListener("input", (e) => {
+      e.preventDefault();
       let value = input.value;
       let width = value.length * 8 + 8; // the first 8 is typically the character limit.
       input.style.width = width + "px";
