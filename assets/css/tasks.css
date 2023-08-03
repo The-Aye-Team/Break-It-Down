@@ -172,9 +172,6 @@ input {
   #btnContainer {
     width: 40vw;
   }
-  #checkmarkWrapper {
-    padding-right: 37px;
-  }
   .subTaskText {
     max-width: 450px;
   }
