@@ -84,7 +84,7 @@ function taskView(randomId) {
   return tasks;
 }
 
-function wholeTaskView(randomId, task, subTasks) {
+function wholeTaskView(randomId, task, subTasks, id) {
   //   let date = new Date().toLocaleTimeString();
   //   let time = date.getHours() + ":" + date.getMinutes();
   let tasks = `
@@ -141,7 +141,9 @@ function wholeTaskView(randomId, task, subTasks) {
       <div class="collapse position-relative bigTask" id="collapseExample${randomId}">
             <div class="card card-body border border-3 border-primary subtask-container">
               ${Object.keys(subTasks)
-                .map((key) => subTaskView(subTasks[key].subTask))
+                .map((key) =>
+                  subTaskView(subTasks[key].subTask, subTasks[key].id)
+                )
                 .join("")}
             </div>
           </div>
@@ -164,8 +166,8 @@ function subTaskView(subTask, id) {
     <div class="deleteBtn">
     <i class="fa-solid fa-trash deleteIcon"></i>
     </div>
-    <div class="ml-2 checkmarkBtn${id}" data-isClicked="false">
-    <i class="fa-solid fa-check checkmarkIcon"></i>
+    <div class="ml-2 checkmarkBtn" data-isClicked="false">
+    <i class="fa-solid fa-check checkmarkIcon" id="${id}"></i>
     </div>
   </div>
     `;
@@ -180,6 +182,7 @@ function populateTask(task, subTasks) {
     "beforeend",
     wholeTaskView(randId, task, subTasks)
   );
+  customInputWidth();
   console.log(document.querySelector(".focus"));
   const mainTask = document.querySelector(`#input${randId}`);
   mainTask.value = task;
@@ -202,6 +205,9 @@ function getTask() {
   console.log(parsedItems);
 
   //   Loops through the array to get each individual task. (output is an object)
+  if (parsedItems === null) {
+    return;
+  }
   for (let i = 0; i < parsedItems.length; i++) {
     taskName = parsedItems[i].name;
     subTasks = parsedItems[i].subTasks;
