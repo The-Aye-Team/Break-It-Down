@@ -44,7 +44,7 @@ function createTask() {
           );
         });
         saveTaskToLocalStorage(allData);
-        item.setAttribute('readOnly');
+        item.setAttribute("readOnly", true);
         // getAiData(taskInput, item.closest(".task-wrapper"));
       }
     });
