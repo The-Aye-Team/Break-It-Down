@@ -1,10 +1,4 @@
-const container = document.querySelector("#tasks-container");
 
-window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    container.classList.add("fadeInTaskView");
-  }, 4000);
-});
 
 const addTask = () => {
   createTask();

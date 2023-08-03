@@ -125,6 +125,7 @@ input:focus,
   left: 50%;
   bottom: 5vh;
   transform: translate(-50%, 0);
+  z-index: 1;
 }
 
 /* .upperContainer {
