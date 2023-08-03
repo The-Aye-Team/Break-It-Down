@@ -176,6 +176,8 @@ function subTaskView(subTask, id) {
 }
 
 function populateTask(task, subTasks) {
+  const container = document.querySelector("#tasks-container");
+  if(container !== null) {
   const taskContainer = document.querySelector("#tasks-container .tasks-list");
   const randId = Math.floor(Math.random() * 10000);
   taskContainer.insertAdjacentHTML(
@@ -190,7 +192,7 @@ function populateTask(task, subTasks) {
   //   calendarName(mainTaskName, taskContainer);
   // calendarName(mainTaskName, mainTask);
 }
-
+}
 function getTask() {
   // Gets all items from localStorage
   const items = localStorage.getItem("allTasks");
