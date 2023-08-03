@@ -139,40 +139,102 @@ function btnEvent(subTask) {
     arrowCheckClick = false;
   });
 
-  let checkClick = false;
-
   // genTask.addEventListener(`click`, () => {
 
   // });
+  let classesArray = checkmarkBtn.classList;
 
+  console.log(checkmarkBtn.classList.contains("event"));
+  if (checkmarkBtn.classList.contains("event")) {
+    return;
+  }
+  checkmarkBtn.classList.add("event");
   checkmarkBtn.addEventListener(`click`, (e) => {
     console.dir(e);
-    if (!checkClick) {
+
+    const checkmarkId = Number(e.target.id);
+    console.log(typeof checkmarkId);
+    const items = localStorage.getItem("allTasks");
+    let subtaskId;
+    const parsedItems = JSON.parse(items);
+    for (let i = 0; i < parsedItems.length; i++) {
+      let taskID = parsedItems[i];
+
+      for (let j = 0; j < taskID.subTasks.length; j++) {
+        // console.log(taskID.subTasks[j].id);
+        if (checkmarkId === taskID.subTasks[j].id) {
+          taskID.subTasks[j].isCompleted = !taskID.subTasks[j].isCompleted;
+
+          toggleColorClass(
+            taskID.subTasks[j].isCompleted,
+            checkmarkBtn,
+            e.target
+          );
+          //   console.log(taskID.subTasks[j].isCompleted);
+        }
+      }
+    }
+
+    localStorage.setItem("allTasks", JSON.stringify(parsedItems));
+
+    // let checkClick = false;
+    // if (!checkClick) {
+    //   checkmarkBtn
+    //     .querySelector(`.checkmarkIcon`)
+    //     .setAttribute(`class`, `fa-regular fa-x checkmarkIcon`);
+    //   checkmarkBtn.parentNode.classList.replace(`bg-white`, `bg-primary`);
+    //   checkmarkBtn.setAttribute(`data-isClicked`, `true`);
+    //   checkClick = true;
+    //   isAllChecked();
+    //   return;
+    // }
+    // checkmarkBtn
+    //   .querySelector(`.checkmarkIcon`)
+    //   .setAttribute(`class`, `fa-solid fa-check checkmarkIcon`);
+    // checkmarkBtn.parentNode.classList.replace(`bg-primary`, `bg-white`);
+    // checkmarkBtn.setAttribute(`data-isClicked`, `false`);
+    // isAllChecked();
+    // checkClick = false;
+  });
+  function toggleColorClass(isCompleted, checkmarkBtn, e) {
+    if (isCompleted) {
+      console.log(isCompleted);
+      // change to green
       checkmarkBtn
         .querySelector(`.checkmarkIcon`)
         .setAttribute(`class`, `fa-regular fa-x checkmarkIcon`);
       checkmarkBtn.parentNode.classList.replace(`bg-white`, `bg-primary`);
       checkmarkBtn.setAttribute(`data-isClicked`, `true`);
-      checkClick = true;
-      isAllChecked();
+      isAllChecked(e);
       return;
     }
+    // remove green
     checkmarkBtn
       .querySelector(`.checkmarkIcon`)
       .setAttribute(`class`, `fa-solid fa-check checkmarkIcon`);
     checkmarkBtn.parentNode.classList.replace(`bg-primary`, `bg-white`);
     checkmarkBtn.setAttribute(`data-isClicked`, `false`);
-    isAllChecked();
-    checkClick = false;
-  });
+    isAllChecked(e);
+  }
 
-  function isAllChecked() {
-    let checkmarks = document.querySelectorAll(`.checkmarkBtn`);
+  function isAllChecked(mark) {
+    let checkmarks =
+      mark.parentNode.parentNode.parentNode.parentNode.querySelectorAll(
+        `.checkmarkBtn`
+      );
+    console.log(checkmarks);
     for (let item of checkmarks) {
-      if (item.getAttribute(`data-isClicked`) == `false`) {
+      console.log(item.getAttribute(`data-isClicked`));
+      if (item.getAttribute(`data-isClicked`) === `false`) {
+        console.log(
+          checkmarkBtn.parentNode.parentNode.parentNode.parentNode.querySelector(
+            `.genTask`
+          )
+        );
         checkmarkBtn.parentNode.parentNode.parentNode.parentNode
           .querySelector(`.genTask`)
           .classList.replace(`bg-primary`, `bg-white`);
+        console.log("hello");
         return;
       }
     }
@@ -182,7 +244,9 @@ function btnEvent(subTask) {
     checkmarkBtn.parentNode.parentNode.parentNode.parentNode
       .querySelector(`.genTask`)
       .click();
+    console.log("hello");
   }
+
   deleteBtn.addEventListener(`click`, (e) => {
     deleteSubTask(e);
   });
@@ -209,20 +273,19 @@ function getUUID() {
 
   let subTaskId;
 
-  if (!item === null) {
-    for (let i = 0; i < item.length; i++) {
-      let taskID = item[i];
-      // console.log(taskID);
+  if (item === null) {
+    return;
+  }
+  for (let i = 0; i < item.length; i++) {
+    let taskID = item[i];
 
-      for (let j = 0; j < taskID.subTasks.length; j++) {
-        subTaskId = taskID.subTasks[j].id;
-        console.log(subTaskId);
-      }
+    for (let j = 0; j < taskID.subTasks.length; j++) {
+      console.log(taskID.subTasks[j].id);
     }
   }
 }
 
-getUUID();
+// getUUID();
 
 function deleteTask(itemID) {
   let item = localStorage.getItem("allTasks");
@@ -244,3 +307,28 @@ function deleteTask(itemID) {
     }
   }
 }
+
+// function checkColorClass() {
+
+//   const checkmarkId = Number(e.target.id);
+//   const items = localStorage.getItem("allTasks");
+//   const parsedItems = JSON.parse(items);
+
+//   for (let i = 0; i < parsedItems.length; i++) {
+//     let taskID = parsedItems[i];
+
+//     for (let j = 0; j < taskID.subTasks.length; j++) {
+//       // console.log(taskID.subTasks[j].id);
+//       if (checkmarkId === taskID.subTasks[j].id) {
+//         taskID.subTasks[j].isCompleted
+
+//           : (taskID.subTasks[j].isCompleted = true);
+
+//         toggleColorClass(taskID.subTasks[j].isCompleted);
+//         console.log(taskID.subTasks[j].isCompleted);
+//       }
+//     }
+//   }
+// }
+
+// window.addEventListener("DOMContentLoaded", checkColorClass);
