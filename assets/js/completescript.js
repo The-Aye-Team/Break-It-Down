@@ -9,21 +9,4 @@ function deleteAllTasks() {
     localStorage.removeItem("allTasks");
     location.reload();
   }
-  // The user clicked "Cancel" (No), perform any other actions or do nothing
-  // const deleteAllTasks = () => {
-  // let deleteTaskBtns = document.querySelectorAll(".deleteBigTaskBtn");
-  // for (let button of deleteTaskBtns) {
-  //   button.addEventListener("click", (e) => {
-  //     function bigTaskDel(e) {
-  //       e.currentTarget.closest(`.task-wrapper`).remove();
-
-  //       }
-  //       bigTaskDel(e);
-  //     });
-  //   }
-  // };
-  // let observer = new MutationObserver(deleteAllTasks);
-  // observer.observe(upperMost, {
-  //   childList: true,
-  // });
 }
