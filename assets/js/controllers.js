@@ -82,28 +82,6 @@ function calendarName(taskInput, item, randomId) {
 }
 
 function btnEvent(subTask) {
-  //   function deleteSubTask(e) {
-  //     e.currentTarget.parentNode.remove();
-  //   }
-
-  // CLICK EVENT ON EDIT BUTTON
-  //   function finishEdit() {
-  //     if (!subTaskText.contenteditable) {
-  //       subTaskText.setAttribute(`contenteditable`, true);
-  //       editBtn
-  //         .querySelector(`.editIcon`)
-  //         .setAttribute(`class`, `fa-solid fa-arrow-right-to-bracket editIcon`);
-  //       subTaskText.focus();
-
-  //       return;
-  //     }
-  //     subTaskText.setAttribute(`contenteditable`, false);
-  //     editBtn
-  //       .querySelector(`.editIcon`)
-  //       .setAttribute(`class`, `fa-solid fa-pen editIcon`);
-  //   }
-
-  let subTaskText = subTask.querySelector(`.subTaskText`);
   let checkmarkBtn = subTask.querySelector(`.checkmarkBtn`);
 
   let genTask =
@@ -129,7 +107,7 @@ function btnEvent(subTask) {
     const checkmarkId = Number(e.target.id);
 
     const items = localStorage.getItem("allTasks");
-    let subtaskId;
+
     const parsedItems = JSON.parse(items);
     for (let i = 0; i < parsedItems.length; i++) {
       let taskID = parsedItems[i];
@@ -189,15 +167,4 @@ function btnEvent(subTask) {
       .querySelector(`.genTask`)
       .click();
   }
-
-  // LISTENING FOR ENTER KEY
-  //   subTaskText.addEventListener("keypress", (e) => {
-  //     if (e.key === `Enter`) {
-  //       e.preventDefault();
-  //       subTaskText.removeAttribute(`contenteditable`);
-  //       editBtn
-  //         .querySelector(`.editIcon`)
-  //         .setAttribute(`class`, `fa-solid fa-pen editIcon`);
-  //     }
-  //   });
 }

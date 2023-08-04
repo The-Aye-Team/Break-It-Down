@@ -19,8 +19,6 @@ const currentTime = getCurrentTime();
 const addOneHour = plusOneHour();
 
 function taskView(randomId) {
-  //   let date = new Date().toLocaleTimeString();
-  //   let time = date.getHours() + ":" + date.getMinutes();
   let tasks = `
         <div class="task-wrapper mb-3 w-100">
         <a 
@@ -150,7 +148,6 @@ function wholeTaskView(randomId, task, subTasks, id) {
           </div>
     `;
 
-  //   calendarName(task, document.querySelector(".focus"));
   return tasks;
 }
 
@@ -191,9 +188,6 @@ function populateTask(task, subTasks) {
 
     const mainTask = document.querySelector(`#input${randId}`);
     mainTask.value = task;
-    const mainTaskName = mainTask.value;
-    //   calendarName(mainTaskName, taskContainer);
-    // calendarName(mainTaskName, mainTask);
   }
 }
 function getTask() {

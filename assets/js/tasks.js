@@ -16,8 +16,6 @@ function customInputWidth() {
 }
 
 async function getAiData(task) {
-  // function getAiData(task, item) {
-
   // Fetch data from OpenAI
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -49,10 +47,4 @@ async function getAiData(task) {
   const replacedTextResult = textResult.replace(/[\n.]*/g, "");
   const newArray = replacedTextResult.split(", ");
   return newArray;
-  // newArray.forEach((item) => {
-  //   createSubtask(item, singleItem);
-  //   customInputWidth();
-  // });
-
-  // This completes the script
 }
