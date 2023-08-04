@@ -39,7 +39,6 @@ function subTaskData(name, subTasks) {
       isCompleted: false,
     })),
   };
-  console.log(singleTask.subTasks);
   return singleTask;
 }
 

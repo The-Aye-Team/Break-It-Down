@@ -23,6 +23,9 @@ body::after {
   background: rgba(60, 73, 63, 0.8);
   z-index: -1;
 }
+.checkmarkIcon {
+  padding: 10px;
+}
 .checkmarkIcon:hover {
   cursor: pointer;
   text-shadow: rgb(94, 158, 122) 1px 0 10px;

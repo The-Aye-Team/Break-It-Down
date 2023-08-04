@@ -17,7 +17,6 @@ function plusOneHour() {
 // Example usage:
 const currentTime = getCurrentTime();
 const addOneHour = plusOneHour();
-// console.log("Current time:", currentTime);
 
 function taskView(randomId) {
   //   let date = new Date().toLocaleTimeString();
@@ -52,6 +51,7 @@ function taskView(randomId) {
           listStyle="modal"
           hideTextLabelButton
           label="Add"
+          hideCheckmark
         ></add-to-calendar-button>
         
        
@@ -65,13 +65,12 @@ function taskView(randomId) {
         startTime="${currentTime}"
         endTime="${addOneHour}"
         timeZone="currentBrowser"
+        hideCheckmark
       ></add-to-calendar-button>
 
         </div>
 
-        <div class="bigDelBtnWrap mr-3">
-        <i class="fa-solid fa-trash deleteBigTaskBtn"></i>
-        </div>          
+             
           <i class="fa-solid fa-chevron-down dropDownBtn"></i>
 
         </a>
@@ -90,8 +89,6 @@ function wholeTaskView(randomId, task, subTasks, id) {
     (key) => subTasks[key].isCompleted
   );
   allCompleted = completedArray.every((isCompleted) => isCompleted === true);
-
-  console.log(completedArray);
 
   let tasks = `
         <div class="task-wrapper mb-3 w-100">
@@ -124,6 +121,7 @@ function wholeTaskView(randomId, task, subTasks, id) {
           listStyle="modal"
           hideTextLabelButton
           label="Add"
+          hideCheckmark
         ></add-to-calendar-button>
         
        
@@ -136,13 +134,10 @@ function wholeTaskView(randomId, task, subTasks, id) {
         startTime="${currentTime}"
         endTime="${addOneHour}"
         timeZone="currentBrowser"
+        hideCheckmark
       ></add-to-calendar-button>
 
-        </div>
-
-        <div class="bigDelBtnWrap mr-3">
-        <i class="fa-solid fa-trash deleteBigTaskBtn"></i>
-        </div>          
+        </div>        
           <i class="fa-solid fa-chevron-down dropDownBtn"></i>
 
         </a>
@@ -160,21 +155,13 @@ function wholeTaskView(randomId, task, subTasks, id) {
 }
 
 function subTaskView({ subTask, id, isCompleted }) {
-  console.log(subTask, id, isCompleted);
-
   let subtask = `
       <div class="d-flex subTaskWrapper justify-content-between align-items-center bg-${
         isCompleted ? "primary" : "white"
       } px-3 py-1 rounded-xl border border-3 border-primary mb-3">
     <div class="d-flex align-items-center">
       <i class="fa-solid fa-circle"></i>
-      <div class="subTaskText" type="text" contenteditable>${subTask}</div>
-    </div>
-    <div class="editBtn">
-      <i class="fa-solid fa-pen editIcon"></i>
-    </div>
-    <div class="deleteBtn">
-    <i class="fa-solid fa-trash deleteIcon"></i>
+      <div class="subTaskText" type="text">${subTask}</div>
     </div>
     <div class="ml-2 checkmarkBtn" data-isClicked="${
       isCompleted ? "true" : "false"
@@ -191,32 +178,32 @@ function subTaskView({ subTask, id, isCompleted }) {
 
 function populateTask(task, subTasks) {
   const container = document.querySelector("#tasks-container");
-  if(container !== null) {
-  const taskContainer = document.querySelector("#tasks-container .tasks-list");
-  const randId = Math.floor(Math.random() * 10000);
-  taskContainer.insertAdjacentHTML(
-    "beforeend",
-    wholeTaskView(randId, task, subTasks)
-  );
-  customInputWidth();
+  if (container !== null) {
+    const taskContainer = document.querySelector(
+      "#tasks-container .tasks-list"
+    );
+    const randId = Math.floor(Math.random() * 10000);
+    taskContainer.insertAdjacentHTML(
+      "beforeend",
+      wholeTaskView(randId, task, subTasks)
+    );
+    customInputWidth();
 
-  const mainTask = document.querySelector(`#input${randId}`);
-  mainTask.value = task;
-  const mainTaskName = mainTask.value;
-  //   calendarName(mainTaskName, taskContainer);
-  // calendarName(mainTaskName, mainTask);
-}
+    const mainTask = document.querySelector(`#input${randId}`);
+    mainTask.value = task;
+    const mainTaskName = mainTask.value;
+    //   calendarName(mainTaskName, taskContainer);
+    // calendarName(mainTaskName, mainTask);
+  }
 }
 function getTask() {
   // Gets all items from localStorage
   const items = localStorage.getItem("allTasks");
-  console.log(items);
   let taskName;
   let subTasks;
 
   //   Creates an array of all the tasks in localStorage
   const parsedItems = JSON.parse(items);
-  console.log(parsedItems);
 
   //   Loops through the array to get each individual task. (output is an object)
   if (parsedItems === null) {
@@ -230,7 +217,6 @@ function getTask() {
     subTaskWrapperArray.forEach((subTaskWrapper) => {
       btnEvent(subTaskWrapper);
     });
-    // console.log(parsedItems[i]);
   }
 }
 getTask();

@@ -1,5 +1,3 @@
-
-
 const addTask = () => {
   createTask();
 };
@@ -49,9 +47,7 @@ async function getAiData(task) {
   const newresult = JSON.parse(result);
   const textResult = newresult.choices[0].text;
   const replacedTextResult = textResult.replace(/[\n.]*/g, "");
-  console.log(replacedTextResult);
   const newArray = replacedTextResult.split(", ");
-  console.log(populateTask);
   return newArray;
   // newArray.forEach((item) => {
   //   createSubtask(item, singleItem);

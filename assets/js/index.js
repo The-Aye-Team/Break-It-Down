@@ -1,6 +1,5 @@
 const container = document.querySelector("#tasks-container");
 if (container !== null) {
-  console.log(`item ` + sessionStorage.getItem(`hasVisited`));
   if (sessionStorage.getItem(`hasVisited`) === null) {
     window.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
